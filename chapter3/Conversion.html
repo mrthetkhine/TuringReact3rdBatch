@@ -1,0 +1,62 @@
+<html>
+    <script>
+        let a ;
+       
+        console.log("undefine to string", ""+a);
+        console.log("undefined to number ", +a);
+        console.log("undefined to boolean ", !!a);
+
+        console.log("null to string", ""+null);
+        console.log("null to number ", +null);
+        console.log("null to boolean ", !!null);
+
+        console.log("true to string", ""+true);
+        console.log("true to number ", +true);
+        console.log("true to boolean ", !!true);
+
+        console.log("false to string", ""+false);
+        console.log("false to number ", +false);
+
+        console.log("'' to string", ""+'');
+        console.log("'' to number ", +'');
+        console.log("'' to boolean ", !!'');
+
+        console.log("'100' to string", ""+'100');
+        console.log("'100' to number ", +'100');
+        console.log("'100Hello' to number ", +'100Hello');
+        console.log("'100Hello' to parseInt ", parseInt('100Hello'));
+        console.log("'100' to boolean ", !!'100');
+
+        console.log("0 to string", ""+0);
+        console.log("-0 to string", ""+(-0));
+        console.log("0 to number ", +0);
+        console.log("0 to boolean ", !!0);
+
+        console.log("NaN to string", ""+NaN);
+        console.log("NaN to number ", +NaN);
+        console.log("NaN to boolean ", !!NaN);
+
+        console.log("{} to number ", +{});
+        console.log("{} to boolean ", !!{});
+
+        console.log("[] to string", ""+[]);
+        console.log("[] to number ", +[]);
+        console.log("[] to boolean ", !![]);
+
+        console.log("[9] to string", ""+[9]);
+        console.log("[9] to number ", +[9]);
+        console.log("[9] to boolean ", !![9]);
+
+        console.log("[1,9] to string", ""+[1,9]);
+        console.log("[1,9] to number ", +[1,9]);
+        console.log("[1,9] to boolean ", !![1,9]);
+
+        function hello()
+        {
+
+        }
+        console.log("function to string", ""+hello);
+        console.log("function to number ", +hello);
+        console.log("function to boolean ", !!hello);
+    </script>
+</html>
