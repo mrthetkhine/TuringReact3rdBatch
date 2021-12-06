@@ -1,0 +1,29 @@
+<html>
+    <script>
+        
+
+        function hello()
+        { 
+            console.log("B ",b);
+            var b = 10; //function scope, hoist
+            console.log("Hello");
+            console.log("How are you");
+
+            var b = 20;
+            
+            {
+                //console.log("A ",a);
+                let a = 5;
+                console.log("Inner block");
+                console.log(" B ",b);
+                b = a;
+                
+            }
+            let a = "Hello"
+            console.log("a ",a);
+            console.log("B ",b);
+        }
+        hello();
+
+    </script>
+</html>
