@@ -1,0 +1,103 @@
+<html>
+  
+    <script>
+       let a = true;
+       let b = 4;
+       let c = "3";
+       let flag = false;
+
+       let obj = {
+           valueOf:function()
+           {
+               console.log("Value of");
+               return 3;
+           }
+       };
+
+       console.log("type of a", typeof a)
+       console.log("type of c", typeof c);
+       console.log("type of flag ", typeof flag);
+
+       console.log("a + b ", a + b); //number addition
+       console.log("c + b ", c + b); //string concatenation
+       // convert b to string
+       // conact
+       console.log("obj + b ", obj + b);
+        // obj to primitive
+       //vlaueOf => number
+       //number + number
+       let obj2 ={
+           toString:function()
+           {
+               console.log("To string called");
+               return 5;
+           }
+       }
+       // obj to primitive
+       //no vlaueOf=>toString => number
+       //number + number
+       console.log("obj2 + b ", obj2 + b);
+
+       let obj3 ={
+           toString:function()
+           {
+               console.log("To string called");
+               return 5;
+           },
+           valueOf:function()
+           {
+               console.log("Value of");
+               return 3;
+           },
+          
+       }
+       // obj to primitive
+       //vlaueOf=> number
+       //number + number
+       console.log("obj3 + b ", obj3 + b);
+
+       let obj4 ={
+           toString:function()
+           {
+               console.log("To string called");
+               return 5;
+           },
+           valueOf:function()
+           {
+               console.log("Value of");
+               return {};
+           },
+          
+       }
+       // obj to primitive
+       //vlaueOf=>toString => number
+       //number + number
+       console.log("obj4 + b ", obj4 + b);
+       let obj5 ={
+           toString:function()
+           {
+               console.log("To string called");
+               return obj3;
+           },
+           valueOf:function()
+           {
+               console.log("Value of");
+               return {};
+           },
+          
+       }
+       // obj to primitive
+       //vlaueOf=>toString => number
+       //number + number
+       ///console.log("obj5 + b ", obj5 + b);
+       let now = new Date();
+       console.log("obj4 + now ", obj4 + now);
+       console.log(" 2+3+'Hello' ", "Hello"+ 2+3+"Hello");
+
+       console.log("[] + b ", [] + b);
+       console.log("[1] + b ", [1] + b);
+       console.log("[1,2] + b ", [1,2] + b);
+       console.log("null + b ", null + b);
+       console.log("undefined + b ", undefined + b);
+    </script>
+</html>
