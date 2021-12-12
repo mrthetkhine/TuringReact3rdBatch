@@ -1,0 +1,48 @@
+<html>
+  
+    <script>
+       let a = 2;
+       let b = 2;
+       let c = 3;
+
+       console.log(" 2==2 ", a == b );
+       console.log(" null == undefined ", null == undefined );
+       console.log(" undefined == null ", undefined == null );
+
+       console.log(" '3' == 3 ", '3' == 3 );
+       console.log(" '3' == 3 ", 3 == '3' );
+       console.log(" '3' == 3Hello ", 3 == '3Hello' );
+
+       console.log(" true == '3' ", true == '3' );
+       //Boolean to number
+       // 1 == '3'
+       // '3' to number
+       // 1 == 3
+       console.log(" true == 1 ", true == 1 );
+        //Boolean to number
+       // 1 == 1
+       // use same type step
+       console.log(" false == null ", false == null );
+       // 0 == null
+       console.log(" false == 0 ", false == 0 );
+       console.log(" false == 'false' ", false == 'false' );
+       console.log(" false == undefined ", undefined == false );
+
+       let obj = {
+           valueOf:function()
+           {
+               return 4;
+           }
+       }
+       console.log("'4'==obj ", '4'==obj);
+       console.log("true==obj ", true==obj);
+
+       let obj2 = {};
+       console.log("0 == {} ", 0 == obj2);
+       console.log("Value of ",obj2.valueOf());
+       console.log("toString ",obj2.toString());
+
+       console.log("[0] == 0 ", 0 == [0]);
+       console.log("[0,0] == 0 ", 0 == [0,0]);
+    </script>
+</html>

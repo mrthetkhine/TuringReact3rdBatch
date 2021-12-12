@@ -1,0 +1,58 @@
+<html>
+  
+    <script>
+        
+        console.log("true && true ", true && true);
+        console.log("true && false ", true && false);
+        console.log("false && true ", false && true);
+        console.log("false && false ", false && false);
+
+
+        console.log("5 && true ", 5 && true);
+        console.log("true && 5 ", true && 5);
+        console.log("'true' && 5 ", "true" && "Hello");
+        console.log("'true' && {} ", "true" && {});
+
+        let flag = false;
+        flag && console.log("Hello");
+
+        console.log("0 && true ", 0 && true);
+        console.log("'' && true ", '' && true);
+        console.log("null && true ", null && true);
+
+        /*
+        AND
+        if LHS is truthy then return RHS
+        else return LHS
+        */
+
+        console.log("true || true ", true || true);
+        console.log("true || false ", true || false);
+        console.log("false || true ", false || true);
+        console.log("false || false ", false || false);
+
+        console.log("5 || true ", 5 || true);
+        console.log("true || 5 ", true || 5);
+        console.log("'true' || 5 ", "true" || "Hello");
+        console.log("'true' || {} ", "true" || {});
+
+        console.log("0 || {} ", 0 || {});
+        console.log("'' || 'true'" , '' || "true");
+        console.log("null || 4 ", null || 4);
+
+        /*
+        OR
+        if LHS is truthy then LHS
+        else return RHS
+        */
+        /*
+        if(!window.MyModule)
+        {
+            window.MyMoudle = {};
+        }
+        */
+
+       window.MyMoudle = window.MyMoudle || {};
+       console.log("!{} ", !{});
+    </script>
+</html>
