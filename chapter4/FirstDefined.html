@@ -1,0 +1,17 @@
+<html>
+  
+    <script>
+        let a = 0;
+        
+        let b = a??4; // a || b
+        let c = b ?? 10;
+        console.log("b ", b);
+        console.log("c ", c);
+
+        let options ={
+            title:"Default title"
+        };
+        let title = options.title?? "Some title";
+        console.log("Title ",title);
+    </script>
+</html>
