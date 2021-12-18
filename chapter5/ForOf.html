@@ -1,0 +1,44 @@
+<html>
+  <script>
+    let arr = [10, 20, 30, 40, 50, 60];
+    for (let i = 0; i < arr.length; i++) {
+      console.log("Arr [", i, "]=>", arr[i]);
+      arr[i] = arr[i] * 2;
+    }
+    console.log("Arr ", arr);
+    let arr2 = [10, 20, 30, 40, 50, 60];
+    for (const element of arr2) {
+      console.log("Element ", element);
+      //element = element *2;
+    }
+    console.log("Arr 2 ", arr2);
+
+    let obj = {
+      name: "Tk",
+      age: 37,
+    };
+    console.log("Object.keys ", Object.keys(obj));
+    for (const key of Object.keys(obj)) {
+      console.log("Prop ", key, " value ", obj[key]);
+    }
+    for (const value of Object.values(obj)) {
+      console.log("Prop value ", value);
+    }
+    for (const [key, value] of Object.entries(obj)) {
+      console.log("Prop ", key, " value ", value);
+    }
+    let frequency = {};
+    for (let letter of "mississippi") 
+    {
+      if (frequency[letter]) 
+      {
+        frequency[letter]++;
+      } 
+      else 
+      {
+        frequency[letter] = 1;
+      }
+    }
+    console.log("Frequency ",frequency);
+  </script>
+</html>

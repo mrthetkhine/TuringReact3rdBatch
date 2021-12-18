@@ -1,0 +1,25 @@
+<html>
+  <script>
+    let str = "Java programming & JavaScript programming";
+    let words = str.split(" ");
+    console.log("words ",words);
+
+    let wordSet = new Set(words);
+    console.log("WordSet ",wordSet);
+
+    for(const word of wordSet)
+    {
+        console.log("Word ",word);
+    }
+
+    let map = new Map([
+        [1,"Hello"],
+        [2,"How are you"]
+    ]);
+    console.log("Map ",map);
+    for(const [key,value] of map)
+    {
+        console.log("Key ",key, " value ",value);
+    }
+  </script>
+</html>
