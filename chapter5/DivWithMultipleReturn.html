@@ -1,0 +1,31 @@
+<html>
+  <script>
+    function getArray()
+    {
+        return [10,20];
+    }
+    let [a,b] = getArray();
+    console.log("A ",a, " B ",b);
+
+    function div(x,y)
+    {
+        if(isNaN(y))
+        {
+            return ["Y is NaN",undefined];
+        }
+        else
+        {
+            return [,x/y];
+        }
+    }
+    let [error,result] = div(10,3);
+    if(error)
+    {
+        console.log("There is error ",error);
+    }
+    else
+    {
+        console.log("Result ",result);
+    }
+  </script>
+</html>

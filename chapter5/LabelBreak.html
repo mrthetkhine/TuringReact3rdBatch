@@ -1,0 +1,19 @@
+<html>
+  <script>
+    outer:for(let i=0;i< 5;i++)
+    {
+        console.log("Outer loop ",i);
+        for(let j=0;j< 5;j++)
+        {
+            console.log(" Inner loop ",j);
+            if( i== 3)
+            {
+                break outer;
+            }
+        }
+       
+    }
+   next:
+    console.log("Hello");
+  </script>
+</html>

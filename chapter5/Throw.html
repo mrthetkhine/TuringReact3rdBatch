@@ -1,0 +1,31 @@
+<html>
+  <script>
+    function div(x,y)
+    {
+        console.log("Div ",x, " ",y);
+        if(isNaN(y))
+        {
+            throw {
+                message:"Y is NaN"
+            };
+        }
+        console.log("Not run");
+        return x /y;
+    }
+    try
+    {
+        let result = div(10,2);
+        console.log("Result ",result);
+    }
+    catch(e)
+    {
+        console.log("Error ",e);
+    }
+    finally
+    {
+        console.log("Finally Ever run");
+    }
+    console.log("After try block");
+    
+  </script>
+</html>
