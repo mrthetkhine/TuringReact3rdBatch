@@ -1,0 +1,25 @@
+<html>
+  <script>
+
+    
+    let target = {
+        max : 30,
+        min : 5
+    }
+    let source = {
+        max : 50,
+    };
+    /*
+    for(const key of Object.keys(source))//['max']
+    {
+        target[key] = source[key]; //target['max'] = 50
+    }
+    */
+    let modified = Object.assign(target,source,{something : "TK"});
+    console.log("Source ",source);
+    console.log("Target ",target);
+    console.log("Modified ",modified);
+    console.log("target==modified ",target==modified);
+   
+  </script>
+</html>

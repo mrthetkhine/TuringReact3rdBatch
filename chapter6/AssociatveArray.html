@@ -1,0 +1,33 @@
+<html>
+  <script>
+
+    
+    let config = {
+        max: 20,
+        min : 10,
+    }
+    config["max"] = 100;
+    let obj = Object.create({
+        display:function()
+        {
+            console.log("Hello");
+        }
+    });
+    console.log("Obj ",obj);
+    obj.display();
+
+    console.log("Obj.x ",obj.x);
+    console.log("Obj.x.y ",obj.x?.y);
+
+    let obj2 = {
+        x: 10,
+        y : 20
+    }
+    delete obj2.x;
+    console.log("Obj2 ",obj2);
+    console.log("x in obj2 ","x" in obj2);
+    console.log("obj2.hasOwnProperty ",obj2.hasOwnProperty("y"));
+    console.log("obj2.o.propertyIsEnumerable ",obj2.propertyIsEnumerable("y"));
+
+  </script>
+</html>

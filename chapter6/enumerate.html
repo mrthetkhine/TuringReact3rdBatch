@@ -1,0 +1,14 @@
+<html>
+  <script>
+
+    
+   for(let p in window)
+   {
+       console.log("Property ",p, " => ", window[p]);
+   }
+   console.log("Keys ",Object.keys(window));
+   console.log("Keys ",Object.getOwnPropertyNames(window));
+   console.log("Keys ",Object.getOwnPropertySymbols(window));
+   console.log("Reflect.ownKeys ",Reflect.ownKeys(window));
+  </script>
+</html>
