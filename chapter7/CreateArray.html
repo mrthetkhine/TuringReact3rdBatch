@@ -1,0 +1,38 @@
+<html>
+  <script>
+
+    /*
+    let age0 = 20;
+    let age1 = 30;
+    let age2 = 16;
+    let age3 = 25;
+    let age4 = 18;
+
+    let total = age0+ age1 + age2+ age3+ age4;
+    */
+   let ages = [20,30,16,25,18,11];
+    let arr2 = [...ages];
+    console.log("Arr2 ",arr2);
+    let ages2 = ages;
+    console.log("ages== arr2 ",ages == arr2);
+    console.log("ages == ages2 ",ages == ages2);
+
+    let arr3  = new Array(5);//[,,,,,]
+    console.log("Arr3 ",arr3);
+
+    let arr4 = new Array(1,2,3);
+    console.log("Arr4 ",arr4);
+
+    let arr5 = Array.from("Hello");
+    console.log("Arr5 ",arr5);
+
+    let arr6 = Array.from([10,20,30]);
+    console.log("Arr6 ",arr6);
+
+    let arr7 = Array.of(1,2,3);
+    console.log("Array.of ",arr7);
+
+    let arr8 = ages.slice(2,5);
+    console.log("Arr8 ",arr8);
+  </script>
+</html>
