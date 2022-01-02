@@ -1,0 +1,25 @@
+<html>
+  <script>
+
+    let arr = [1,2,3,4,5,6];
+    let sum = 0;
+
+    function addSum(value)
+    {
+        console.log("Foreach call addSum ",value);
+        sum += value; 
+    }
+    arr.forEach(addSum);
+    console.log("Arr ",arr);
+    console.log("Sum ",sum)
+
+    sum = 0;
+    arr.forEach( value => sum+= value);
+    console.log("Arr ",arr);
+    console.log("Sum ",sum)
+
+    arr.forEach(function (value,index,array){
+        console.log("Value ",value, " index ",index, " array ",array);
+    });
+  </script>
+</html>

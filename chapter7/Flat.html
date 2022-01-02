@@ -1,0 +1,12 @@
+<html>
+  <script>
+
+   
+    let arr = [1,2,[3,4,[5,,6]]];
+    console.log(arr.flat(3));
+
+    let phrases = ["hello world", "the definitive guide"];
+    let words = phrases.flatMap(phrase => phrase.split(" "));
+    console.log("Word ",words);
+  </script>
+</html>

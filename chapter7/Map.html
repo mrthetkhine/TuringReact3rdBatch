@@ -1,0 +1,36 @@
+<html>
+  <script>
+
+    let arr = [1,2,3,4,5,6];
+    let doubleArr = arr.map(value=> value* 2); 
+
+    console.log("Double Arr ",doubleArr);
+    console.log("Array ",arr);
+
+    let users = [
+        {
+            name : 'One',
+            age : 14,
+        },
+        {
+            name : 'Two',
+            age : 15,
+        },
+        {
+            name : 'Three',
+            age : 14,
+        },
+    ];
+    let usersName = [];
+    for(let i=0, len = users.length; i < len; i++)
+    {
+        usersName.push(users[i].name);
+    }
+    console.log("User names ",usersName);
+
+    usersName = users.map(user=>user.name);
+    console.log("Username ",usersName);
+
+    users.map((user,index)=> console.log("User ",user, " index ",index))
+  </script>
+</html>

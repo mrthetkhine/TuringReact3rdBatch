@@ -1,0 +1,26 @@
+<html>
+  <script>
+
+   
+    let users = [
+        {
+            name : '',
+            age : 44,
+            gender:'male',
+        },
+        {
+            name : 'Daw Hla',
+            age : 65,
+            gender:'female',
+        },
+        {
+            name : 'Maung Mya',
+            age : 14,
+            gender:'male',
+        },
+    ];
+   let youngestMale = users.filter(user=> user.gender=='male')
+                        .reduce((userA,userB)=> userA.age < userB.age ? userA : userB)
+    console.log("Youngest male ",youngestMale);
+  </script>
+</html>

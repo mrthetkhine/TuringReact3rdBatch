@@ -1,0 +1,32 @@
+<html>
+  <script>
+
+    let arr = [1,2,3,4,5,6];
+    let evenList = arr.filter(value=> value %2 ==0);
+    console.log("Even list ",evenList);
+    console.log("Arr ",arr);
+    console.log("Arr findIndex ", arr.findIndex(value=> value > 4));
+    console.log("Arr find ", arr.find(value=> value > 4));
+
+    let users = [
+        {
+            name : 'U Ohn',
+            age : 44,
+            gender:'male',
+        },
+        {
+            name : 'Daw Hla',
+            age : 65,
+            gender:'female',
+        },
+        {
+            name : 'Maung Mya',
+            age : 14,
+            gender:'male',
+        },
+    ];
+    let maleUsers = users.filter(user=> user.gender=='male')
+                         .map(user=>user.name)   ;
+    console.log("Male user ",maleUsers);
+  </script>
+</html>
