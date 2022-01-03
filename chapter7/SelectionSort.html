@@ -1,0 +1,41 @@
+<html>
+  <script>
+
+    //==0, > 1, < -1
+    let arr = [100,10,2,11,3]; //0
+    // [2, 10,11,3  ,100] step1
+    // [2, 3,11,10,100 ] index =1  
+    // [2,3,10,11,100 ] index =2   
+    // [2,3,10,11,100 ] index = 3;
+
+    function sort(arr)
+    {
+        for(let i=0;i < arr.length-1; i++)
+        {
+            let minIndex = i;
+            for(let j=i; j < arr.length; j++)
+            {
+                if( arr[minIndex] > arr[j])
+                {
+                    minIndex = j;
+                }
+            }
+            let temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        };
+
+    }
+    sort(arr);
+    console.log("Arr ",arr);
+
+    arr.reverse();
+    console.log("Arr ",arr);
+
+    console.log("Arr.join ", arr.join(","));
+    console.log("Arr.join ", arr.join(":"));
+
+    console.log("Array.isArray [] ",Array.isArray(arr));
+    console.log("Array.isArray {}",Array.isArray({}));
+  </script>
+</html>

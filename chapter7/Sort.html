@@ -1,0 +1,42 @@
+<html>
+  <script>
+
+    //==0, > 1, < -1
+    let arr = [100,10,2,11,3];
+    console.log("Arr ",arr);
+
+    /*
+    arr.sort(function(a,b){
+        return a-b;
+    });
+    */
+    arr.sort((a,b)=>b-a);
+    console.log("Arr ",arr);
+
+    let users = [
+        {
+            name :"One",
+            age : 36,
+        },
+        {
+            name :"Two",
+            age : 1,
+        },
+        {
+            name :"Three",
+            age : 55,
+        },
+        {
+            name :"Four",
+            age : 28,
+        },
+    ];
+    console.log("user ",users);
+    users.sort((userA,userB)=>{
+        console.log("A ",userA, " B ",userB);
+        return userA.age-userB.age;
+    }
+    );
+    console.log("user ",users);
+  </script>
+</html>
