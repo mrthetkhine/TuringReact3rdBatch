@@ -1,0 +1,23 @@
+<html>
+  <script>
+
+    function hello()
+    {
+        console.log("Hello");
+    
+    }
+    hello();
+    //inner();
+    let obj = {
+        name: "Tk",
+        age: 37,
+        hello : function()
+        {
+            console.log("Obj.method ",this.name, " age ",this.age);
+        }
+    }
+    obj.hello();
+    let date = new Date();
+    console.log("Date ",date);
+  </script>
+</html>

@@ -1,0 +1,27 @@
+<html>
+  <script>
+
+    function greet()
+    {
+        console.log("Hi");
+        console.log("Hello, How are you");
+        console.log("Good evening");
+    }
+    let hello = greet; //rule 1
+    hello();
+
+    function execFunc(func)
+    {
+        console.log("Execute function passed to ");
+        func();
+    }
+    execFunc(greet);
+
+    function getFunc()
+    {
+        console.log("Get func");
+        return greet;
+    }
+    getFunc()();
+  </script>
+</html>
