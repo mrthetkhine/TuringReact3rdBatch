@@ -1,0 +1,19 @@
+<html>
+  <script>
+
+    //msg parameter  
+    function greet(msg,second,third)
+    {
+        if(arguments.length != 3)
+        {
+            console.warn("Function greet required 3 parameter");
+        }
+        console.log("Function arguments ",arguments);
+        console.log("Arguments ",arguments.length);
+        msg = msg || 'Hello';
+        console.log(msg);
+        console.log("How are you second ",second, " third", third);
+    }
+    greet("Good Morning","Second value");
+  </script>
+</html>

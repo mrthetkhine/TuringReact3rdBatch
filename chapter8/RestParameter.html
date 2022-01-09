@@ -1,0 +1,19 @@
+<html>
+  <script>
+
+    function fun(first,...rest)
+    {
+        console.log("First ",first);
+        for(const arg of rest)
+        {
+            console.log("Arg ",arg);
+        }
+    }
+    fun("Hello");
+    fun("Hello",1,2,3);
+
+    let data = [3,-20,2];
+    console.log("Math.min ", Math.min(1,2,-3));
+    console.log("Math.min ", Math.min(...data));
+  </script>
+</html>

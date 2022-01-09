@@ -1,0 +1,25 @@
+<html>
+  <script>
+
+    //3! = 3 * 2 * 1;
+    factorial.cache = {};
+    function factorial(num)
+    {
+        if( factorial.cache[num])
+        {
+            console.log("fetch from cache");
+            return factorial.cache[num];
+        }
+        let result = 1;
+        console.log("Compute ", num , "!");
+        for(let i=num; i>=1 ;i --)
+        {
+            result *= i;
+        }
+        factorial.cache[num] = result;
+        return result;
+    }
+    console.log("Factorial ", factorial(3));
+    console.log("Factorial ", factorial(3));
+  </script>
+</html>

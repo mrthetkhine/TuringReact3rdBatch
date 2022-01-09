@@ -1,0 +1,22 @@
+<html>
+  <script>
+
+    function Human(argName,argAge)
+    {
+       let name = argName;
+       let age = argAge;
+
+       function display()
+       {
+           console.log("Name is ",name, " Age ",age);
+       }
+       return {
+           display: display
+       }
+    }
+    let obj = Human("Tk",37);
+    console.log("Name ",obj.name);
+    obj.display();
+   
+  </script>
+</html>

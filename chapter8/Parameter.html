@@ -1,0 +1,27 @@
+<html>
+  <script>
+
+    //msg parameter  
+    function greet(msg)
+    {
+        msg = msg || 'Hello';
+        console.log(msg);
+        console.log("How are you");
+    }
+    
+    //argument
+    //greet("Good evening");//Good Morning
+    //greet("Good Morning");//Good evening
+
+    //greet();
+    //greet("Good Morning","How are you");
+
+    function greet2(msg="Hello")
+    {
+        console.log(msg);
+        console.log("How are you");
+    }
+    greet2();
+    greet2("Good Morning");
+  </script>
+</html>
