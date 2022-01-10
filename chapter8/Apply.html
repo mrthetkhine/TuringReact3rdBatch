@@ -1,0 +1,33 @@
+<html>
+  <script>
+
+    let arr = [10,20,30,-10,8];
+    console.log(Math.min.apply(Math,arr));
+
+    let obj = {
+        name : "Tk",
+        age : 37,
+        display:function(msg)
+        {
+            console.log(msg);
+            console.log("Name ",this.name, " Age ",this.age);
+        }
+    }
+    obj.display("Hello");
+
+    let obj2 = {
+        name : "Aung Aung",
+        age : 23,
+    }
+    let d = obj.display.bind(obj2);
+    d("Hello");
+
+    let json = JSON.stringify(obj);
+    console.log("Json ",json);
+
+    let obj3 = JSON.parse(json);
+    console.log("Obj3 ",obj3);
+    d = obj.display.bind(obj3);
+    d("Hi");
+  </script>
+</html>
