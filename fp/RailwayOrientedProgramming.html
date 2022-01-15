@@ -4,7 +4,9 @@
     const toUpper =(str)=> str.toUpperCase();
     const appendHi = (str)=> "hi "+str;
 
+   
     const result = appendHi(toUpper("hello"));
+    const addHello = (str)=> "Hello "+ str;
     console.log("Result ",result);
 
     function compose(funA,funB)
@@ -12,9 +14,12 @@
         return function(str){
             return funA(funB(str));
         }
-
     }
-    const process = compose(appendHi,toUpper);
-    console.log("process ",process("hello"));
+    const process = compose(compose(appendHi,toUpper),addHello);
+    console.log("process ",process("test"));
+
+    let compose2 = (funA,funB)=>(str)=>funA(funB(str));
+    let twoFunction = compose2(appendHi,toUpper);
+    console.log("TwoFunction ",twoFunction("input"));
   </script>
 </html>
