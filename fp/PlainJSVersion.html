@@ -1,0 +1,32 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.20.0/ramda.min.js"></script>
+  <script>
+
+    const students = [
+        {
+            name:'Rosser',
+            grade : 80
+        }, 
+        {
+            name:'Turing',
+            grade : 100
+        },
+        {
+            name:'Kleene',
+            grade : 90
+        },
+        {
+            name:'Church',
+            grade : 99
+        },
+    ];
+    console.log("Students ",students);
+
+    let maxGrade = (a,b) => a.grade > b.grade? a: b;
+    let getName = (student)=>student.name;
+    let result = getName(students.reduce(maxGrade));
+    console.log("Result ",result);
+  
+  </script>
+</html>
+

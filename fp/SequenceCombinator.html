@@ -1,0 +1,24 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.20.0/ramda.min.js"></script>
+  <script>
+
+    const seq = function()
+    {
+        const funcs = Array.prototype.slice.call(arguments);
+        console.log("Funcs ",funcs);
+        return function(val)
+        {
+            funcs.forEach(function(func){
+                func(val);
+            });
+        }
+    }
+    function display(str)
+    {
+        console.log("Hello "+str);
+    }
+    let seqFunc = seq(console.log, display);
+    seqFunc("test");
+  </script>
+</html>
+

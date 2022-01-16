@@ -1,0 +1,51 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.20.0/ramda.min.js"></script>
+  <script>
+
+    let obj = {
+        data: {
+            school:{
+                name : "UCSY"
+            }
+        }
+    }
+    const students = ['Rosser', 'Turing', 'Kleene', 'Church'];
+    const grades   = [80, 100, 90, 99];
+    console.log("Zip ", R.zip(grades,students));
+    console.log("Prop ", R.prop('0',grades));
+    console.log("Prop ", R.prop('data',obj));
+
+    let users = [
+        {
+            name: "Tk",
+            age : 37
+        },
+        {
+            name: "Aung Aung",
+            age : 30
+        },
+        {
+            name: "Mg Kyaw",
+            age : 50
+        },
+    ];
+    console.log("SortBy ",R.sortBy(R.prop('age'),users));
+    console.log("Reverse ",R.reverse(users));
+    console.log("Pluck ",(R.pluck('name',users)));
+    console.log("head ",R.head(R.pluck('name',users)));
+
+    let log = R.tap(console.log);
+    let findSmartestStudent = R.pipe(
+                                    R.zip,
+                                    log,
+                                    R.sortBy(R.prop(0)),
+                                    log,
+                                    R.reverse,
+                                    log,
+                                    R.head,
+                                    R.prop(1)
+                                    );
+    console.log("Smartest ", findSmartestStudent(grades,students));
+  </script>
+</html>
+

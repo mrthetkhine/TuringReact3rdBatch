@@ -1,0 +1,33 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.20.0/ramda.min.js"></script>
+  <script>
+
+    let result = false || true;
+    console.log("Or ",result);
+    const alter = function(funcA,funcB)
+    {
+        return function(val)
+        {
+            return funcA(val) || funcB(val);
+        }
+    }
+    let isEmpty = (str) => str.length ==0;
+    let startWithUpperCase = (str)=> str.toUpperCase()[0] == str[0];
+
+    console.log("Is Empty ",isEmpty(""));
+    console.log("start with uppercase Hello ",startWithUpperCase("Hello"));
+    console.log("start with uppercase hello",startWithUpperCase("hello"));
+
+    let isEmptyOrStartWithUpperCase = alter(isEmpty,startWithUpperCase);
+    console.log("Alter hello",isEmptyOrStartWithUpperCase("hello"));
+    console.log("Alter ",isEmptyOrStartWithUpperCase(""));
+    console.log("Alter Hello",isEmptyOrStartWithUpperCase("Hello"));
+
+    let ramdaAlter = R.curry((funA,funB,val)=> funA(val)||funB(val));
+    isEmptyOrStartWithUpperCase = ramdaAlter(isEmpty,startWithUpperCase);
+    console.log("Alter hello",isEmptyOrStartWithUpperCase("hello"));
+    console.log("Alter ",isEmptyOrStartWithUpperCase(""));
+    console.log("Alter Hello",isEmptyOrStartWithUpperCase("Hello"));
+  </script>
+</html>
+
