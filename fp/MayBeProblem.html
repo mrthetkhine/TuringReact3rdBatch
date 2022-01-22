@@ -1,0 +1,47 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.20.0/ramda.min.js"></script>
+  <script>
+
+   let count = 0;
+   count = count +1;
+
+   const Functor = (v)=>({
+            value: v,
+            map : (f)=>Functor(f(v)),
+            valueOf:()=>v
+        });
+
+   MayBe.of = function(value)
+   {
+       return MayBe(value);
+   }
+   function MayBe(value){
+        function isNothing()
+        {
+            return (value === null) || (value === undefined);
+        }
+        return {
+            map :function(fun)
+            {
+                //console.log("is Nothing ",isNothing());
+                return isNothing()? MayBe(null):MayBe(fun(value));
+            },
+            identity:function(val)
+            {
+                return MayBe(val);
+            },
+            valueOf(){
+                return value;
+            }
+        }
+   }
+   const toUpper = (str)=> str.toUpperCase();
+   const appendHi = (str) => str+" hi";
+   //let hello = MayBe('hello');
+   let hello = MayBe(null);
+   console.log("Inc ",hello.map(toUpper).map(appendHi).valueOf());
+  
+   
+  </script>
+</html>
+

@@ -1,0 +1,31 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.20.0/ramda.min.js"></script>
+  <script>
+
+   let count = 0;
+   count = count +1;
+
+   function Wrapper(value){
+        return {
+            map :function(fun)
+            {
+                return Wrapper(fun(value));
+            },
+            identity:function(val)
+            {
+                return Wrapper(val);
+            },
+            valueOf(){
+                return value;
+            }
+        }
+   }
+   const inc = (val)=> val + 1;
+   const duplicate = (val) => val *2;
+   let countWrapper = Wrapper(0);
+   console.log("Inc ",countWrapper.map(inc).map(duplicate).valueOf());
+   console.log("Id ",countWrapper.identity(0).valueOf());
+   
+  </script>
+</html>
+
