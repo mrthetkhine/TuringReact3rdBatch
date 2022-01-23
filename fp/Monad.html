@@ -1,0 +1,23 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.20.0/ramda.min.js"></script>
+  <script>
+
+   const Monad = (value)=>({
+       flatMap: f=> f(value),
+       map(f){
+           return this.flatMap(a => Monad.of(f(a)));
+       },
+       toString: () => `Id(${ value })`
+   });
+  
+   Monad.of = value=> Monad(value);
+   console.log("Monad of ", Monad.of(3));
+   console.log("Flatmap ", Monad.of(3).flatMap(x=>x+2));
+   Monad.of(3)
+        .map(x=>x+2)
+        .map(x=>x+5)
+        .map(x=>console.log(x))
+   //console.log("map ", );
+  </script>
+</html>
+

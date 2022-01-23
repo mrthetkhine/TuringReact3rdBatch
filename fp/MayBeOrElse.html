@@ -1,0 +1,41 @@
+<html>
+    <script>
+    MayBe.of = function(value)
+   {
+       return MayBe(value);
+   }
+   function MayBe(value){
+        function isNothing()
+        {
+            return (value === null) || (value === undefined);
+        }
+        return {
+            map :function(fun)
+            {
+                //console.log("is Nothing ",isNothing());
+                return isNothing()? MayBe(null):MayBe(fun(value));
+            },
+            identity:function(val)
+            {
+                return MayBe(val);
+            },
+            valueOf(){
+                return value;
+            },
+            orElse : function(defaultValue) {
+                if (isNothing()) {
+                    return MayBe.of(defaultValue);
+                }
+
+                return this;
+            }
+        }
+   }
+  
+   const toUpper = (str)=> str.toUpperCase();
+   const appendHi = (str) => str+" hi";
+   //let hello = MayBe('hello');
+   let hello = MayBe(null);
+   console.log("Inc ",hello.map(toUpper).orElse("default string").map(appendHi).valueOf());
+    </script>
+</html>
