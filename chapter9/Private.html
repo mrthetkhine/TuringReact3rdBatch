@@ -1,0 +1,35 @@
+<html>
+    <script>
+    class Human
+    {
+        _name = "";
+        _age = 0;
+        #school = "UCSY"
+        display()
+        {
+            console.log("Name ",this._name, " age ",this._age, " School ",this.#school);
+        }
+    }
+    let h = new Human();
+    console.log("H ",h);
+    //h.#school = "Hello";
+    h.display();
+
+    function PHuman(name,age)
+    {
+        let _name = name;
+        let _age = age;
+        function display()
+        {
+            console.log("Name ",_name, " Age ",_age);
+        }
+        return {
+            display
+        };
+    }
+    let obj = PHuman('TK',37);
+    console.log('Obj ',obj);
+    obj.display();
+    console.log("Obj._age ",obj._age);
+    </script>
+</html>

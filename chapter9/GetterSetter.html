@@ -1,0 +1,34 @@
+<html>
+    <script>
+    class Human
+    {
+        constructor(name,age)
+        {
+            console.log(' Human Constructor invoke ',name , "Age ",age);
+            this._name = name;
+            this._age = age;
+        }
+        display()
+        {
+            console.log("Name ",this.name, " Age ",this.age);
+        }
+        get name()
+        {
+            return this._name;
+        }
+        set age(newAge)
+        {
+            if(newAge >0 && newAge <100)
+            {
+                this._age = newAge;
+            }
+        }
+    }
+    let h = new Human("TK",37);
+    h.age = 200;
+    console.log("Name ",h.name);
+    console.log("H ",h);
+    h._age = 300;
+    console.log("H ",h);
+    </script>
+</html>

@@ -1,0 +1,52 @@
+<html>
+    <script>
+    class Human
+    {
+        constructor(name,age)
+        {
+            console.log(' Human Constructor invoke ',name , "Age ",age);
+            this.name = name;
+            this.age = age;
+        }
+        display()
+        {
+            console.log("Name ",this.name, " Age ",this.age);
+        }
+        changeName(name)
+        {
+            this.name = name;
+        }
+    }
+    class Teacher extends Human
+    {
+        constructor(name, age,school)
+        {
+            super(name,age);
+            this.school = school;
+        }
+        teach()
+        {
+            console.log('Teacher ',this.name , ' teach');
+        }
+    }
+    let h = new Human("Tk",37);
+    h.display();
+    console.log("h.toString ",h.toString());
+
+    let teacher = new Teacher("U Aung Myaing",45,"UCSY");
+    teacher.display();
+    teacher.teach();
+   
+
+    let teacher2 = new Teacher("U Aung Kyaing",30,"YTU");
+    teacher2.display();
+    teacher2.teach();
+
+    teacher.changeName("Someone");
+    console.log('Teacher Name ',teacher.name);
+    console.log('Teacher2 Name ',teacher2.name);
+
+    console.log("Teacher ",teacher);
+    console.log("Teacher2 ",teacher2);
+    </script>
+</html>

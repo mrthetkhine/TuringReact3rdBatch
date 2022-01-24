@@ -1,0 +1,42 @@
+<html>
+    <script>
+    function Human(name,age)//constructor
+    {
+        //console.log("This ",Human.constructor);
+        if(new.target== undefined)
+        {
+            console.warn("Calling constructor without new");
+        }
+        this.name = name;
+        this.age = age;
+
+        this.display = function()
+        {
+            console.log('Name ',this.name, ' Age ',this.age);
+        }
+    }   
+    let obj = new Human('Tk',37);
+    obj.display();
+
+    /*
+    let obj2 = Human('Aung Aung',39);
+    obj2.display();
+    */
+    function Teacher()
+    {
+        this.teach = function()
+        {
+            console.log("teacher ",this.name," teach");
+        }
+    }
+    Teacher.prototype = new Human('Tk',37);
+    let teacher = new Teacher();
+    teacher.display();
+    teacher.teach();
+
+    console.log("teacher instanceof Teacher ",teacher instanceof Teacher);
+    console.log("teacher instanceof Human ",teacher instanceof Human);
+    console.log("teacher instanceof Object ",teacher instanceof Object);
+    console.log("Constructor ",teacher.constructor);
+    </script>
+</html>
