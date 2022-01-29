@@ -1,0 +1,25 @@
+<html>
+  <script>
+   
+    
+    let list = [10,20,13,15,19];
+    let isEven = (x)=> x%2==0;
+    //console.log(list.filter(isEven));
+
+    function filter(lst,predicateFunc)
+    {
+        return lst.reduce(
+            (arr,element)=>predicateFunc(element)?arr.concat(element):arr,
+            []);
+    }
+    console.log(filter(list,isEven));
+
+    function map(lst,mapper)
+    {
+        return lst.reduce(
+            (arr,element)=>arr.concat(mapper(element)),
+            []);
+    }
+    console.log(map(list,x=>x*2));
+  </script>
+</html>

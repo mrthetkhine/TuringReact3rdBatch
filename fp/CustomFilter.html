@@ -1,0 +1,28 @@
+<html>
+  <script>
+    const reduce=(reducer,initial,arr)=>{
+        // shared stuff
+        let acc = initial; 
+        for(let i=0,{length}=arr;i<length;i++){
+            // unique stuff in reducer call
+            acc = reducer(acc, arr[i]);
+        // more shared stuff
+        }
+        return acc; 
+    };
+
+    const filter=( fn, arr)=>
+                    reduce(
+                            (acc,curr)=>fn(curr)? acc.concat([curr]) :acc, 
+                            [], 
+                            arr
+                            );
+    
+    let list = [10,20,13,15,19];
+    let isEven = (x)=> x%2==0;
+    console.log(list.filter(isEven));
+
+    let cusFilter = filter(isEven,list);
+    console.log("CusFilter ",cusFilter);
+  </script>
+</html>

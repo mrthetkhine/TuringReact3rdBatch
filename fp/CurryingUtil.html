@@ -1,0 +1,31 @@
+<html>
+  <script>
+
+    //pure
+    function add(x, y)
+    {
+        console.log("Add.length ",add.length);
+        return x+y;
+    }
+    function curriedAdd(x)
+    {
+        return function(y)
+        {
+            return x+y;
+        }
+    }
+    let add3 = curriedAdd(3);
+    console.log("Add3(4) ",add3(4));
+    const curry=( f,arr=[])=>(...args)=>(
+                                        a =>{
+                                        console.log("A ",a);    
+                                        return  a.length === f.length ?
+                                            f(...a) :
+                                            curry(f, a) }
+                                        )
+                                        ([...arr,...args]);
+    let add4 = curry(add,);
+    console.log("Add4 ",add4);
+    console.log("Add4(4) ",add4(4)(3));
+  </script>
+</html>

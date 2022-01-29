@@ -1,0 +1,56 @@
+<html>
+  <script>
+
+    //pure
+    function add(x, y)
+    {
+        console.log("Add.length ",add.length);
+        return x+y;
+    }
+    function curriedAdd(x)
+    {
+        return function(y)
+        {
+            return x+y;
+        }
+    }
+    let add3 = curriedAdd(3);
+    console.log("Add3(4) ",add3(4));
+    console.log("Curried ",add.bind(null,2)(3));
+
+    function curry(f)
+    {
+        console.log("Function length ",f.length);
+        return function second()
+        {
+            if(f.length == arguments.length)
+            {
+                return f.bind(null,...arguments);
+            }
+            else
+            {
+                console.log("Another case ",arguments);
+            }
+        }
+        
+    }
+    function addThree(x,y,z)
+    {
+        return x+y+z;
+    }
+    /*
+    let add4 = curry(add);
+    console.log("Add4 ", add4(2)(3));
+    function addThree(x,y,z)
+    {
+        return x+y+z;
+    }
+    let add5 = curry(addThree);
+    console.log("Add5 ",add5);
+    */
+    //console.log("Add5 ", add5(2)(3)(5));
+    let add5 = curry(addThree);
+    console.log("Add ",add5(1)(2)(3));
+  
+  </script>
+</html>
