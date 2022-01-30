@@ -1,0 +1,45 @@
+<html>
+    <script>
+        let map = new Map(
+            [
+                [1,"Aung Aung"],
+                [2,"Maung Aung"],
+                [1,"Aung Kyi"],
+            ]
+        );
+        console.log("Map ",map);
+
+        let obj = {
+            name :"Tk",
+            age : 37,
+        };
+        let map2 = new Map(Object.entries(obj));
+        console.log("Map 2 ",map2);
+
+        console.log("Map size ",map2.size);
+        map2.set("name2","Change");
+        console.log("Map 2 ",map2);
+        console.log("Map 2.get ",map2.get("name"));
+        console.log("Map 2.get ",map2.get("name2"));
+        console.log("Map 2.has ",map2.has("name"));
+        map2.delete("name");
+        map2.delete("name2");
+
+        //map2.clear();
+        console.log("Map2 clear ",map2);
+        map2.set(obj,"Value");
+        console.log("Get ",map2.get(obj));
+
+        for(let [key,value] of map2)
+        {
+            console.log("Key ",key, " Value ",value);
+        }
+        console.log("Map.keys ",map2.keys());
+        console.log("Map.values ",map2.values());
+        console.log("Map.entries ",map2.entries());
+
+        map2.forEach((value,key)=>{
+            console.log("Key ",key, " value ",value);
+        })
+    </script>
+</html>

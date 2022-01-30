@@ -1,0 +1,22 @@
+<html>
+    <button id="btnGarbage" type="button">Collect</button>
+    <script>
+        let map = new WeakMap(
+            [
+               
+            ]
+        );
+        
+        let garArr = [];
+
+        for(let i=0;i<100000;i++)
+        {
+            garArr.push( new Array(100000000));
+        }
+        map.set(garArr,"Value");
+       document.getElementById("btnGarbage").addEventListener("click",function()
+       {
+           garArr = null;
+       });
+    </script>
+</html>

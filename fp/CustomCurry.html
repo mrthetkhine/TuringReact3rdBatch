@@ -18,19 +18,21 @@
     console.log("Add3(4) ",add3(4));
     console.log("Curried ",add.bind(null,2)(3));
 
-    function curry(f)
+    function curry(func)
     {
-        console.log("Function length ",f.length);
-        return function second()
+        return partial(func,func.length,[]);
+    }
+    function partial(f,arity,arg=[])
+    {
+        //console.log("Function length ",arity, " Arg ",arg);
+        if( arity == arg.length)
         {
-            if(f.length == arguments.length)
-            {
-                return f.bind(null,...arguments);
-            }
-            else
-            {
-                console.log("Another case ",arguments);
-            }
+            return f.bind(null,...arg)();
+        }
+        else return function()
+        {
+            //console.log("Another case ",arguments);
+            return partial(f,arity,arg.concat(...arguments));
         }
         
     }
@@ -38,9 +40,10 @@
     {
         return x+y+z;
     }
-    /*
+    
     let add4 = curry(add);
     console.log("Add4 ", add4(2)(3));
+    /*
     function addThree(x,y,z)
     {
         return x+y+z;

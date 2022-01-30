@@ -1,0 +1,16 @@
+<html>
+    <script>
+        function MyModule()
+        {
+            function method()
+            {
+                console.log("Module method");
+            }
+            return {
+                api: method
+            }
+        }
+        let module = MyModule();
+        module.api();
+    </script>
+</html>

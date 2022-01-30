@@ -1,0 +1,26 @@
+<html>
+    <script>
+        let set = new Set([1,2,3,1,1,2]);
+        set.add("1");
+        set.add(5);
+        set.delete(2);
+        console.log(set);
+        console.log('set.has(3) ',set.has(3));
+
+        let chSet = new Set("missisapi");
+        console.log("ChSet ",chSet);
+        console.log("ChSet.size ",chSet.size);
+        
+        chSet.clear();
+        console.log("ChSet ",chSet);
+
+        for(const m of set)
+        {
+            console.log("Member ",m);
+        }
+        let arr = [...set];
+        console.log("Arr ",arr);
+
+        set.forEach(m=>console.log("Member ",m));
+    </script>
+</html>
