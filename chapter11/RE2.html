@@ -1,0 +1,79 @@
+<html>
+    
+    <script>
+        //email
+        //username@domainname.com
+        //digit{9-11}
+        let pattern = /\w/i;
+       
+        console.log("/\w/i bass.test ",pattern.test("bass"));
+        console.log("/\w/i basS.test ",pattern.test("basS"));
+        console.log("/\w/i ' '.test ",pattern.test(" "));
+
+        pattern = /\W/i;
+       
+        console.log("/\W/i bass.test ",pattern.test("bass"));
+        console.log("/\W/i basS.test ",pattern.test("basS"));
+        console.log("/\W/i ' '.test ",pattern.test(" "));
+
+        pattern = /\s/i;
+       
+        console.log("/\s/i bass.test ",pattern.test("bass"));
+        console.log("/\s/i basS.test ",pattern.test("basS"));
+        console.log("/\s/i ' '.test ",pattern.test(" g "));
+
+        pattern = /\S/i;
+       
+        console.log("/\S/i bass.test ",pattern.test("bass"));
+        console.log("/\S/i basS.test ",pattern.test("basS"));
+        console.log("/\S/i ' '.test ",pattern.test(" "));
+
+        pattern = /\d/i;
+       
+        console.log("/\d/i bass.test ",pattern.test("bass"));
+        console.log("/\d/i basS.test ",pattern.test("basS"));
+        console.log("/\d/i '233 '.test ",pattern.test("2332 "));
+
+        pattern = /\D/i;
+       
+       console.log("/\D/i bass.test ",pattern.test("bass"));
+       console.log("/\D/i basS.test ",pattern.test("basS"));
+       console.log("/\D/i '233 '.test ",pattern.test("2332 "));
+
+       let phonePattern = /^\d{9,11}$/i;
+       
+       console.log("/^\d{9,11}$/ 0992222391.test",phonePattern.test("099222239"));
+       console.log("/^\d{9,11}$/ d0992222391.test",phonePattern.test("d0992222391"));
+       console.log("/^\d{9,11}$/ 0992222",phonePattern.test("0992222"));
+
+        pattern = /^\d{9,}$/i;
+       
+        console.log("/\d/i 099222239333.test ",pattern.test("099222239333"));
+        console.log("/\d/i 0992222393333.test ",pattern.test("0992222393333"));
+        console.log("/\d/i '0992222393 '.test ",pattern.test("0992222393 "));
+
+        pattern = /^\d{4}$/i;
+       
+        console.log("/d{4}$/i 0933.test ",pattern.test("0938"));
+        console.log("/d{4}$/i 0992222393333.test ",pattern.test("0992222393333"));
+        console.log("/d{4}$/i '0992222393 '.test ",pattern.test("0992222393 "));
+
+        pattern = /\d?/i;
+       
+        console.log("/d?$/i 0933.test ",pattern.test("0938"));
+        console.log("/d?$/i 0992222393333.test ",pattern.test("0992222393333"));
+        console.log("/d?$/i ' '.test ",pattern.test(" "));
+
+        pattern = /\d+/i;
+       
+       console.log("/d+$/i 0933.test ",pattern.test("0938"));
+       console.log("/d+$/i 0992222393333.test ",pattern.test("0992222393333"));
+       console.log("/d+$/i ' '.test ",pattern.test(" "));
+
+       pattern = /\d*/i;
+       
+       console.log("/d*$/i 0933.test ",pattern.test("0938"));
+       console.log("/d*$/i 0992222393333.test ",pattern.test("0992222393333"));
+       console.log("/d*$/i ' '.test ",pattern.test(" "));
+    </script>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    
+    <script>
+        //email
+        //username@domainname.com
+        //digit{9-11}
+        let pattern = /s$/i;
+        console.log("Match ","deads".match(pattern));
+        console.log("Match ","deads ".match(pattern));
+        console.log("Pattern bass.test ",pattern.test("bass"));
+        console.log("Pattern basS.test ",pattern.test("basS"));
+        console.log("Pattern bad.test ",pattern.test("bad"));
+
+        pattern = /^[abc]/; //start with (a or b or c)
+        console.log("/[abc]/ bad.test ",pattern.test("bad"));
+        console.log("/[abc]/ ddd.test ",pattern.test("dd"));
+
+        pattern = /[^abc]/;//not (a or b or c)
+        console.log("/[^abc]/ ba.test ",pattern.test("ba"));
+        console.log("/[^abc]/ ddd.test ",pattern.test("dd"));
+
+        pattern = /[a-z]/;
+        console.log(" /[a-z]/ ba.test ",pattern.test("ba"));
+        console.log(" /[a-z]/ 332.test ",pattern.test("332"));
+
+        pattern = /[a-zA-Z]/;
+        console.log(" /[a-zA-Z]/ baC.test ",pattern.test("baC"));
+        console.log(" /[a-zA-Z]/ 332.test ",pattern.test("332"));
+
+        pattern = /[0-9]/;
+        console.log(" /[0-9]/ baC.test ",pattern.test("baC"));
+        console.log(" /[0-9]/ 332b.test ",pattern.test("332b"));
+    </script>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    
+    <script>
+        //email
+        //username@domainname.com
+        //digit{9-11}
+        let pattern = /(java|javascript)\sprogramming/i;
+       
+        console.log("/(java|javascript)\sprogramming/i; java programming.test ",pattern.test("java programming"));
+        console.log("/(java|javascript)\sprogramming/i; javascript programming.test ",pattern.test("javascript programming"));
+        console.log("/(java|javascript)\sprogramming/i; C# programming.test ",pattern.test("C# programming"));
+
+        pattern = /(java)+/i;
+       
+        console.log("/(java)+/i; java programming.test ",pattern.test("java programming"));
+        console.log("/(java)+/i;  javascript programming.test ",pattern.test("javascript programming"));
+        console.log("//(java)+/i;  C# programming.test ",pattern.test("C# programming"));
+        
+    </script>
+</html>

@@ -1,0 +1,39 @@
+<html>
+    <button id="btnGarbage" type="button">Collect</button>
+    <script>
+        let arr = [1,2,"hello"];
+        let a = "Hello";//2
+
+        let byteArr;
+        byteArr = new Uint8Array(20);
+        //byteArr = new Array(5000000);
+        byteArr[5] = 15;
+        byteArr = Uint8Array.of(10,20,30);
+        byteArr = Uint8Array.from([10,20,30]);
+        console.log("ByteArr ",byteArr);
+
+        let buffer = new ArrayBuffer(12);
+        console.log("Buffer length ",buffer.byteLength);
+        arr = new Uint8Array(buffer);
+        arr[0] = 10;
+        arr[1] = 20;
+
+        arr.fill(20);
+        let arr2 = new Uint32Array(buffer);
+        console.log('Arr2 ',arr2[0]);
+        console.log("Arr2 ",arr2);
+
+        let bytes = new Uint8Array(1024);
+        let pattern = new Uint8Array([0,1,2,3]);
+        bytes.set(pattern,8);
+
+        console.log("Bytes ",bytes);
+        let slice = bytes.slice(1,10);
+        slice[1] = 100;
+        console.log("bytes ",bytes[1]);
+
+        let sub = bytes.subarray(0,10);
+        sub[0] = 200;
+        console.log("sbu ",bytes[0]);
+    </script>
+</html>
