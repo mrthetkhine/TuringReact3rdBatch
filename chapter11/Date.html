@@ -1,0 +1,25 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js">
+
+    </script>
+    <script>
+        let date = new Date();
+        console.log("Date ",date);
+
+        let miliseconds = date.getTime();
+        date = new Date(miliseconds);
+        console.log("Date ",date);
+
+        date = new Date(2022,1,5,17,38);
+        console.log("Date ",date);
+
+        date = new Date("Feb 05 2022 17:38:00 GMT+0630");
+        console.log("Date ",date);
+
+        let nowDate = moment();
+        let momentDate = moment(date);
+        momentDate.add(2,'days');
+        console.log("Moment Date ",momentDate);
+        console.log("isBefore ",nowDate.isBefore(momentDate));
+    </script>
+</html>

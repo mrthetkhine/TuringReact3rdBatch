@@ -1,0 +1,61 @@
+<html>
+    
+    <script>
+        
+
+        function test(str)
+        {
+            let initialState = 0;
+            let errorState = 100;
+            let state = initialState;
+        
+            for(let i=0;i < str.length; i++)
+            {
+                let currentChar = str.charAt(i);
+
+                switch(state)
+                {
+                    case initialState:
+                        if(currentChar=='0')
+                        {
+                            state = 1;
+                        }
+                        else
+                        {
+                            state = errorState;
+                        }
+                    break;
+                    case 1:
+                        if(currentChar=='0')
+                        {
+                            state = 1;
+                        }
+                        else if(currentChar=='1')
+                        {
+                            state = 2;
+                        }
+                        else
+                        {
+                            state = errorState;
+                        }
+                    break;    
+                    case 2:
+                        if(currentChar=='1')
+                        {
+                            state = 2;
+                        }
+                        else
+                        {
+                            state = errorState;
+                        }
+                    break;
+                }
+            }
+            return state == 2;
+        }
+        console.log("01 ", test("01"));
+        console.log("00111 ", test("00111"));
+        console.log("100111 ", test("100111"));
+        console.log("001011 ", test("001011"));
+    </script>
+</html>

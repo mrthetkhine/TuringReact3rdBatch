@@ -1,0 +1,30 @@
+<html>
+    
+    <script>
+        //email
+        //username@domainname.com
+        //digit{9-11}
+        console.log("Search ", "JavaScript".search(/script/i));
+        console.log("Search ", "Python".search(/script/i));
+        
+        console.log("Replace", "javascript".replace(/javascript/i,"JavaScript"));
+        let quote = /"([^"]*)"/g;
+        console.log("Replace", 'he said "stop" '.replace(quote,"<<$1>>"));
+        quote = /"(?<quotedText>[^"]*)"/g;
+        console.log("Replace", 'he said "stop" '.replace(quote,"<<$<quotedText>>>"));
+
+        let s = "15 times 15 is 225";
+        console.log(s.replace(/\d+/gu, n => parseInt(n).toString(16))) // => "f times f is e1"
+
+        let result = "7 plus 8 equals 15".match(/\d+/g);
+        console.log("Math result ",result);
+
+        //.[com|org|gov]    
+        let email = /(\w+)@(\w+)\.(com|org|gov)/i;
+        console.log("Test ",email.test("username@gmail5com"));
+        let emailResult = "username@gmail5com".match(email)
+        console.log("Username ", emailResult[1]);
+        console.log("domain ", emailResult[2]);
+        console.log("Username ", emailResult.groups.username);
+    </script>
+</html>

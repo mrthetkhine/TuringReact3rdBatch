@@ -1,0 +1,18 @@
+<html>
+    
+    <script>
+        let vowel = /[aeiou]/y;
+        console.log("Match ", "test".match(vowel));
+        vowel.lastIndex = 1;
+        console.log("Match ", "test".match(vowel));
+
+        const words = /\b\p{Alphabetic}+\b/gu; // \p is not supported in Firefox yet
+        const text = "This is a naïve test of the matchAll() method.";
+        for(let word of text.matchAll(words)) 
+        {
+            console.log(`Found '${word[0]}' at index ${word.index}.`);
+        }
+        const texts = text.split(" ");
+        console.log("Texts ",texts);
+    </script>
+</html>
