@@ -1,0 +1,19 @@
+<html>
+  
+    <script>
+        let url = new URL("https://example.com:8000/path/name?q= term#fragment");
+        console.log("Url ",url);
+
+        let url2 = new URL("http://localhost:8080");
+        url2.pathname = "somewhere";
+        url2.searchParams.append("data","Google");
+        console.log("Url 2 ",url2.toString());
+        console.log("has ",url2.searchParams.has("data"));
+        console.log("get ",url2.searchParams.get("data"));
+
+        let encodedStr =  encodeURI("http://localhost:8080/query?name=Hello how are you");
+        console.log("Encode ",encodedStr);
+        let realStr = decodeURI(encodedStr);
+        console.log("Real Str ",realStr);
+    </script>
+</html>

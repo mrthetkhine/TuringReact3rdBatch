@@ -1,0 +1,22 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js">
+
+    </script>
+    <script>
+        class CustomError extends Error 
+        {
+            constructor(msg)
+            {
+                super(msg);
+            }
+        }
+        try
+        {
+            throw new CustomError("Custom erorr ");
+        }
+        catch(e)
+        {
+            console.log("E ",e);
+        }
+    </script>
+</html>

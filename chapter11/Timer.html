@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <button id="btnClear" type="button">
+            Clear
+        </button>
+    </body>
+    <script>
+        console.log("Start");
+        setTimeout(()=>console.log("Just execute 1 time=>0"),0);
+        setTimeout(()=>console.log("Just execute 1 time"),3000);
+        console.log("End ");
+
+        function showTime()
+        {
+            console.count("Hello");
+        }
+        let showTimeTimer = setInterval(showTime,1000);
+        document.getElementById("btnClear").addEventListener("click",
+                                            ()=>clearInterval(showTimeTimer));
+    </script>
+</html>

@@ -1,0 +1,36 @@
+<html>
+  
+    <script>
+        let euros = Intl.NumberFormat("es", {
+                                        style: "currency", 
+                                        currency: "EUR"
+                                        });
+        console.log("Euro ",euros.format(10));
+
+        let pounds = Intl.NumberFormat("en", {
+                                        style: "currency", 
+                                        currency: "GBP"
+                                        });
+        console.log("Punds ",pounds.format(1000)); 
+        let kyat = Intl.NumberFormat("mm", {
+                                        style: "currency", 
+                                        currency: "MMK"
+                                        });
+        console.log("Kyat ",kyat.format(1000)); 
+
+        let date = new Date();
+        console.log("en-us",Intl.DateTimeFormat("en-US").format(date));
+        console.log("mm",Intl.DateTimeFormat("mm").format(date))
+        console.log("fr-FR",Intl.DateTimeFormat("fr-FR").format(date));
+
+        const collator = new Intl.Collator().compare;
+        console.log("Sort ", ["a", "z", "A", "Z"].sort(collator));
+
+        const fuzzyMatcher = new Intl.Collator(undefined, { 
+            sensitivity: "base",
+            ignorePunctuation: true
+        }).compare;
+        let strings = ["food", "fool", "Føø Bar"];
+        console.log(strings.findIndex(s => fuzzyMatcher(s, "foobar") === 0));
+    </script>
+</html>

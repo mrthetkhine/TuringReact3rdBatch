@@ -1,0 +1,63 @@
+<html>
+  
+    <script>
+        let obj1 = {
+            name : "One",
+            age :12,
+        };
+        let obj2 = {
+            name : "Two",
+            age :14,
+        }
+        let arr = [
+            obj1,
+            obj2
+        ];
+        function method1()
+        {
+            console.log("Method1 ");
+            console.trace("Trace");
+            console.time("Logged");
+            for(let i=0;i< 100;i++)
+            {
+                9+9;
+                console.timeLog("Log ");
+            }
+            console.timeEnd("Time end");
+        }
+        function method()
+        {
+            method1();
+        }
+        console.log("Arr ",arr);
+        obj2.name = "Change";
+        console.log("Arr ",arr);
+        console.info("Arr ");
+        console.debug("Debug ");
+        console.error("Error ");
+        console.warn("Error ");
+        console.table(["apples", "oranges", "bananas"]);
+        method();
+
+        let num = 0;
+        console.assert(num > 0,"Number greater than zero");
+        console.log("Another");
+        console.count("Hello");
+        console.count("Hello");
+        console.count("Hello");
+        console.countReset("Hello");
+        console.count("Hello");
+
+        console.log("This is the outer level");
+        console.group();
+        console.log("Level 2");
+        console.group();
+        console.log("Level 3");
+        console.warn("More of level 3");
+        console.groupEnd();
+        console.log("Back to level 2");
+        console.groupCollapsed("Another");
+        console.groupEnd();
+        console.log("Back to the outer level");
+    </script>
+</html>
