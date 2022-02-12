@@ -1,0 +1,24 @@
+<html>
+   
+    <script>
+       let sum = 0;
+       let arr =  [11,2,3,4,35];
+       for(const i of arr)
+       {
+           sum += i;
+       }
+       console.log("Sum ",sum );
+       console.log("Math.max ", Math.max(...arr)); 
+
+       let [a,...b] = arr;
+       console.log("A ",a, "B ",b);
+
+       let obj = {
+           name: "Tk",
+           age : 37,
+           school:"Somewhere"
+       };
+       let {name,age} = obj;
+       console.log("Name ",name, " Age ",age);
+    </script>
+</html>

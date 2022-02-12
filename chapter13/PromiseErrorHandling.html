@@ -1,0 +1,25 @@
+<html>
+   
+
+    <script>
+    
+      function div(a,b)
+      {
+          if(b== 0)
+          {
+            return Promise.reject("Divisor should not be zero");
+          }
+          else
+          {
+            return Promise.resolve(a/b);
+          }
+      }
+      //console.log("Div 10,3 ",div(10,3));
+      //console.log("Div 10,0 ",div(10,0));
+      div(10,2).then(data=>console.log("Result ",data),
+                error=>console.log("error ",error))
+      div(10,0).then(data=>console.log("Result ",data),
+                error=>console.log("error ",error))
+      //console.log("Never executed");
+    </script>
+</html>

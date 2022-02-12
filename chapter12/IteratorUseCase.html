@@ -1,0 +1,58 @@
+<html>
+   
+    <script>
+       
+        let departments = [
+            { 
+                name : "HR",
+                employees : ["Mg Mg ","Aung Aung"]
+            },
+            { 
+                name : "Finance",
+                employees : ["Kyaw Kyaw ","Mya Mya"]
+            },
+        ];
+        let employees = ["Win Maung","Soe Min"];
+        class Company
+        {
+            constructor(departments,employees)
+            {
+                this.departments = departments;
+                this.employees = employees;
+            }
+            [Symbol.iterator]() { 
+                
+                let employeesList = [];
+                for(let dept of this.departments)
+                {
+                    employeesList.push(... dept.employees);
+                }
+                employeesList.push(...this.employees);
+
+                console.log("Employee list ",employeesList);
+                ///console.log("Call iterator ",this.from ," ", this.to);
+                let i = 0;
+                let to = employeesList.length;
+                return {
+                    next(){ //2
+                        ///console.log("Call next i",i," to ",to," ",  i < to);
+                        return {//3
+                            value: i< to? employeesList[i]:undefined,
+                            done : i++<to? false: true,
+                        }
+                    },
+                    [Symbol.iterator]() { return this; }
+                }
+            }
+        }
+        let company = new Company(departments,employees);
+        //console.log("R ",r.next());
+        //console.log("R ",r.next());
+        
+        for(let emp of company)
+        {
+            console.log("Employee ",emp);
+        }
+        
+    </script>
+</html>

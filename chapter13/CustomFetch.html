@@ -1,0 +1,61 @@
+<html>
+   
+
+    <script>
+        function restCall(url)
+       {
+        let request = new XMLHttpRequest();
+        request.open("GET", url);
+        request.send();
+
+        request.onload = function()
+        {
+            console.log("Response ",request.responseText);
+            let json = JSON.parse( request.responseText );
+            console.log("Json ",json);
+        }
+        request.onerror = function()
+        {
+            console.log("Error ",request);
+        }
+       }
+        /*
+       function ourFetch(url)
+       {
+            //return Promise.reject("Erorr");
+            return Promise.resolve({
+                name:"Data "
+            });
+       }*/
+       function ourFetch(url)
+       {
+            return new Promise((resolve, reject) => {
+                let request = new XMLHttpRequest();
+                request.open("GET", url);
+                request.send();
+                request.onload = function()
+                {
+                    ///console.log("Response ",request);
+                    let json = JSON.parse( request.responseText );
+                    //console.log("Json ",json);
+                    resolve(json);
+                }
+                request.onerror = function(error)
+                {
+                    //console.log("Error ",request);
+                    reject(error);
+                }
+               
+            });
+       }
+       let url = "https://jsonplaceholder.typicode.com/todos/1";
+       //url = "http://www.seeee111.com";
+       let promise = ourFetch(url);
+       console.log("Promise ",promise);
+       ourFetch(url)
+        .then(data=>console.log("Data ",data), 
+             error=>console.log("error ",error))
+        .finally(data=>console.log("Finally run ",data));
+
+    </script>
+</html>

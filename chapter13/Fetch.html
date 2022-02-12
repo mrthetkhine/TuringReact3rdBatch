@@ -1,0 +1,14 @@
+<html>
+   
+
+    <script>
+    
+       let url = "https://jsonplaceholder.typicode.com/todos/1";
+       fetch(url)
+        .then(response => response.json())
+        .then(data => console.log("Data is ",data));
+
+        let promise = fetch(url);
+        console.log("Promise ",promise);
+    </script>
+</html>

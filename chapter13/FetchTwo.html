@@ -1,0 +1,27 @@
+<html>
+   
+
+    <script>
+      
+
+       function restCall(url)
+       {
+        let request = new XMLHttpRequest();
+        request.open("GET", url);
+        request.send();
+
+        request.onload = function()
+        {
+            console.log("Response ",request.responseText);
+            let json = JSON.parse( request.responseText );
+            console.log("Json ",json);
+        }
+        request.onerror = function()
+        {
+            console.log("Error ",request);
+        }
+       }
+       let url = "https://jsonplaceholder.typicode.com/todos/1";
+       restCall(url);
+    </script>
+</html>

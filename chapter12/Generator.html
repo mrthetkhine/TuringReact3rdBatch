@@ -1,0 +1,25 @@
+<html>
+   
+    <script>
+       function *range()
+       {
+            console.log("Range called");
+            yield 1;
+            console.log("Step 2");
+            yield 2;
+            yield 3;
+            return "Hello";
+       }
+       let r = range();
+       console.log("R ",r);
+       console.log("R ",r.next());
+       console.log("R ",r.next());
+       console.log("R ",r.next());
+       console.log("R ",r.next());
+
+       for(let i of range())
+        {
+            console.log(" I ",i);
+        }
+    </script>
+</html>

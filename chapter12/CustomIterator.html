@@ -1,0 +1,48 @@
+<html>
+   
+    <script>
+        let iterable = [99,100];
+        let iterator = iterable[Symbol.iterator]();
+        console.log("Next ",iterator.next());
+        console.log("Next ",iterator.next());
+        console.log("Next ",iterator.next());
+        /*
+        for(let result = iterator.next(); !result.done; result = iterator.next()) {
+            console.log(result.value) // result.value == 99 
+        }
+        */
+
+        class Range
+        {
+            constructor(from,to)
+            {
+                this.from = from;
+                this.to = to;
+            }
+            [Symbol.iterator]() { //1
+                ///console.log("Call iterator ",this.from ," ", this.to);
+                let i = this.from;
+                let to = this.to;
+                return {
+                    next(){ //2
+                        ///console.log("Call next i",i," to ",to," ",  i < to);
+                        return {//3
+                            value: i< to? i:undefined,
+                            done : i++<to? false: true,
+                        }
+                    },
+                    [Symbol.iterator]() { return this; }
+                }
+            }
+        }
+        let r = new Range(1,5);
+        //console.log("R ",r.next());
+        //console.log("R ",r.next());
+        
+        for(let i of r)
+        {
+            console.log("I ",i);
+        }
+        
+    </script>
+</html>

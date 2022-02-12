@@ -1,0 +1,27 @@
+<html>
+   
+    <script>
+       function *smallNumber()
+       {
+           console.log("Next invoked first time argument discarded");
+           let y1 = yield 1;
+           console.log("Next invoked second time argument ",y1);
+           let y2 = yield 2;
+           console.log("Next invoked third time argument ",y2);
+           //throw new Error("Got error at 3rd time");
+           return 4;
+       }
+       let g = smallNumber();
+       let n1 = g.next("One");
+       console.log("N1 ",n1);
+       
+       let n2 = g.next("Two");
+       console.log("N2 ",n2);
+
+       let n3 = g.next("Three");
+       console.log("N3 ",n3);
+
+       let n4 = g.next("Four");
+       console.log("N4 ",n4);
+    </script>
+</html>

@@ -1,0 +1,22 @@
+<html>
+   
+
+    <script>
+    
+       let url1 = "https://jsonplaceholder.typicode.com/todos/1";
+       let url2 = "https://jsonplaceholder.typicode.com/todos/2";
+       let urls = [url1,url2,'https://www.null.com'];
+
+       let promises = urls.map(url=>fetch(url).then(r=>r.json()));
+       Promise.all(promises)
+              .then(results=>console.log(results))
+              .catch(e=>console.log("error ",e))
+
+        const promise1 = Promise.resolve(3);
+        const promise2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+        const promises2 = [promise1, promise2];
+
+        Promise.allSettled(promises2)
+                .then((results) => results.forEach((result) => console.log(result.status)));
+    </script>
+</html>

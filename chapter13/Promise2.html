@@ -1,0 +1,23 @@
+<html>
+   
+
+    <script>
+    
+       let promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                //resolve('foo');
+                reject('foo');
+            }, 300);
+        });
+        promise.then(data=>data+"Something",
+                    (error)=>{
+                        throw "Someting went wrong"
+                    })
+                .catch(data=>{
+                    console.log("Catch ",data)
+                    return 4;
+                })
+                .then(data=>console.log("Data ",data))
+               
+    </script>
+</html>

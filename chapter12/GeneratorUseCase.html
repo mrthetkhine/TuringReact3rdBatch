@@ -1,0 +1,48 @@
+<html>
+   
+    <script>
+       
+        let departments = [
+            { 
+                name : "HR",
+                employees : ["Mg Mg ","Aung Aung"]
+            },
+            { 
+                name : "Finance",
+                employees : ["Kyaw Kyaw ","Mya Mya"]
+            },
+        ];
+        let employees = ["Win Maung","Soe Min"];
+        class Company
+        {
+            constructor(departments,employees)
+            {
+                this.departments = departments;
+                this.employees = employees;
+            }
+            *gen()
+            {
+                let employeesList = [];
+                for(let dept of this.departments)
+                {
+                    employeesList.push(... dept.employees);
+                }
+                employeesList.push(...this.employees);
+                for(let emp of employeesList)
+                {
+                    yield emp;
+                }
+            }
+            
+        }
+        let company = new Company(departments,employees);
+        //console.log("R ",r.next());
+        //console.log("R ",r.next());
+        
+        for(let emp of company.gen())
+        {
+            console.log("Employee ",emp);
+        }
+        
+    </script>
+</html>
