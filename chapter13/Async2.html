@@ -1,0 +1,28 @@
+<html>
+   
+
+    <script>
+    
+       async function getData()
+       {
+            return Promise.resolve("Hello");
+       }
+       getData().then(data=>console.log("data ",data))
+
+       async function getAllData()
+       {
+            let url = "https://jsonplaceholder.typicode.com/todos/1";
+            let url2 = "https://jsonplaceholder.typicode.com/todos/2";
+            let urls = [url,url2];
+
+            let promises = urls.map(url=>fetch(url));
+            for await(response of promises)
+            {
+                let json = await response.json();
+                console.log("Json ",json);
+            }
+       }
+       getAllData();
+       
+    </script>
+</html>

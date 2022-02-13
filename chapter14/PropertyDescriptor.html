@@ -1,0 +1,45 @@
+<html>
+   
+
+    <script>
+    
+       let obj = {
+           name: "Tk",
+           age : 37,
+           school : "",
+       };
+       console.log("Property descriptor ",Object.getOwnPropertyDescriptor(obj,"name"));
+       Object.defineProperty(obj,"x",{
+           value:1,
+           writeable:false,
+           enumerable:true,
+           configurable:true,
+       });
+       console.log("Obj.x ",obj.x);
+       obj.x = "Hello";
+       console.log("Obj.x ",obj.x);
+
+       for(let [key,value] of Object.entries(obj))
+       {
+           console.log(`Key ${key} value ${value}`);
+       }
+       delete obj.x;
+       console.log("Obj.x ",obj.x);
+
+       Object.defineProperty(obj,"y",{
+           get()
+           {
+               console.log("Getter");
+               return this._y;
+           },
+           set(newValue)
+           {
+               console.log("Setter ", newValue)
+                this._y = newValue;      
+           }
+
+       });
+       obj.y = "Change";
+       console.log("Obj.y ",obj.y);
+    </script>
+</html>

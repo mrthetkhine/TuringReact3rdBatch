@@ -1,0 +1,42 @@
+<html>
+   
+
+    <script>
+    let module = {
+        data : "Some data",
+        f1: function(par1)
+        {
+            console.log("Function 1 called ",par1);
+            return "Hello";
+        },
+        f2: function()
+        {
+            console.log("Function 2 called");
+        }
+    }
+    function injectLog(obj)
+    {
+       
+        for(const [key,value] of Object.entries(obj))
+        {
+            //console.log("Typeof ",typeof value, " value ",value);
+            if(typeof value === "function" )
+            {
+                let originalFunc =  obj[key];
+                //console.log(`Property ${key} is function`);
+                obj[key] = function()
+                {
+                    console.log(`Debug.log ${key} is called with `,arguments);
+                    let retValue = originalFunc.apply(null,arguments);
+                    console.log(`Debug.log ${key} is returned with `,retValue);
+                    return retValue;
+                }
+            }
+        }
+    }
+    //injectLog(module);
+    let data =  module.f1("Hello");
+    console.log("Data ",data);
+    module.f2();
+    </script>
+</html>

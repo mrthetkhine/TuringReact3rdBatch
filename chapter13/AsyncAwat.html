@@ -1,0 +1,23 @@
+<html>
+   
+
+    <script>
+    
+       async function getData()
+       {
+        let url = "https://jsonplaceholder.typicode.com/todos/1";
+        let response = await fetch(url);
+        console.log("Ok");
+        let json = await response.json();
+        console.log("Json is ",json); 
+       }
+       getData();
+       console.log("Done");
+       async function getOne()
+       {
+           
+            return 1;
+       }
+       getOne().then(data=>console.log("Data ",data));
+    </script>
+</html>
