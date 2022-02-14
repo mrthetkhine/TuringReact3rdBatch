@@ -1,0 +1,20 @@
+<html>
+   
+
+    <script>
+    
+       console.log("Object.prototype {}",Object.getPrototypeOf({}));
+       console.log("Object.prototype []",Object.getPrototypeOf([]));
+       class Human
+       {
+
+       }
+       class Teacher extends Human
+       {
+
+       }
+       let obj = new Teacher();
+       console.log("Object.prototype obj",Object.getPrototypeOf(obj));
+       console.log("Object.isPrototype obj",Object.prototype.isPrototypeOf(obj));
+    </script>
+</html>

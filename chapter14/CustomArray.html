@@ -1,0 +1,31 @@
+<html>
+   
+
+    <script>
+       
+       class CustomArray extends Array
+       {
+           static get [Symbol.species]() { return Array; }
+           get first()
+           {
+               return this[0];
+           }
+           get last()
+           {
+               return this[this.length-1];
+           }
+       }
+       //CustomArray[Symbol.species] = Array;
+       let arr = new CustomArray(1,2,3,4,5);
+       
+       let f = arr.map(x=> x*x);
+       console.log("Arr.last ",arr.last);
+       console.log("f.last ",f.last);
+
+       let arraylike = { length: 1,
+        0: 1,
+        [Symbol.isConcatSpreadable]: true 
+        };
+        console.log("concat ",[].concat(arraylike));
+    </script>
+</html>

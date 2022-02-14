@@ -1,0 +1,29 @@
+<html>
+   
+
+    <script>
+    
+       let parent1= {
+           display : function()
+           {
+               console.log("Parent 1");
+           }
+       };
+       let parent2 = {
+           display : function()
+           {
+               console.log("Parent 2");
+           }
+       };
+       let obj = {
+
+       };
+       Object.setPrototypeOf(obj,parent1);
+       obj.display();
+       
+       Object.setPrototypeOf(obj,parent2);
+       obj.display();
+       
+       console.log("getPrototype ",Object.getPrototypeOf(obj));
+    </script>
+</html>

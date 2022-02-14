@@ -1,0 +1,25 @@
+<html>
+   
+
+    <script>
+    
+        let obj = {
+            name : "TK",
+            age : 37,
+        };
+        Object.seal(obj);
+        obj.school = "Hello";
+        obj.name ="Chnage";
+        console.log("obj ",obj);
+        
+        console.log("is Sealed ",Object.isSealed(obj));
+        let another = Object.create(obj);
+        another = {... obj};
+        console.log("Another ",another);
+
+        Object.freeze(another);
+        another.name = "Hello";
+        console.log("Another ",another);
+        console.log("isFrozen ",Object.isFrozen(another));
+    </script>
+</html>

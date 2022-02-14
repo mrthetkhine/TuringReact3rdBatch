@@ -1,0 +1,29 @@
+<html>
+   <body>
+        <div id="container">
+
+        </div>
+   </body>
+
+    <script>
+       
+       let obj = {
+           name :"Data",
+           school : "UCSY"
+       };
+       let template = "<div>"  
+                            +"<div>Hello" 
+                            +"<h1>"+ obj.name +"</h1>"
+                            +"<h1>"+ obj.school +"</h1>"
+                      +"</div>"  ;
+        template = `
+            <div>
+                    <div>hello</div>
+                    <h1>Name :${obj.name}</h1>
+                    <h1>School :${obj.school}</h1>
+            </div>    
+            `;
+        let container = this.document.getElementById("container");
+        container.innerHTML = template;
+    </script>
+</html>

@@ -1,0 +1,24 @@
+<html>
+   
+
+    <script>
+       
+       class CustomReg
+       {
+            constructor(str)
+            {
+                this.str = str;
+                this.regexp = new RegExp(str);
+                console.log("Reg exp ",this.regexp);
+            }
+            [Symbol.search](s) { return s.search(this.regexp); }
+
+            [Symbol.toPrimitive](){
+                return 100;
+            }
+       }
+       let customReg = new CustomReg("([0-9])+");
+       console.log("Test 99920 ", "Hello 9393".search(customReg));
+       console.log("customReg+ 2 ", customReg+2);
+    </script>
+</html>

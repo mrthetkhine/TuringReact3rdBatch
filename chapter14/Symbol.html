@@ -1,0 +1,19 @@
+<html>
+   
+
+    <script>
+    
+       console.log("Symbol ",Symbol.hasInstance);
+       let nameOne = Symbol("name");
+       let nameTwo = Symbol("name");
+        let obj ={
+            [nameOne]:"Hello Symbol"
+        };
+        obj.name = "Hello";
+       console.log("name one ",nameOne);
+       console.log("name two ",nameTwo);
+
+       console.log("Name ",obj[nameOne]);
+       console.log("Obj ",obj);
+    </script>
+</html>

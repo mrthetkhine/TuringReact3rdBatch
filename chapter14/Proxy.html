@@ -1,0 +1,47 @@
+<html>
+   
+  
+    <script>
+    const target = {
+        message1: "hello",
+        message2: "everyone",
+        display:function()
+        {
+            console.log("Hello");
+        }
+    };
+
+    const handler = {
+        get(target, prop, receiver) {
+            console.log("getting property ",prop);
+            return target[prop];
+        },
+        set(target, prop, value) 
+        {
+            console.log("set property ",prop, " new value ",value);
+            target[prop] = value;
+        },
+       
+
+    };
+
+    const proxy = new Proxy(target, handler);
+    console.log(proxy.message1);
+    proxy.message1 = "Change";
+    //proxy.display();
+    console.log("Target ",proxy.message1);
+
+    function sum(a, b) {
+        return a + b;
+    }
+    let handler2 = {
+        apply(target,receiver,args)
+        {
+            console.log(`Call `,target);
+            return Reflect.apply(target,receiver,args);
+        }
+    };
+    let funcProxy = new Proxy(sum,handler2);
+    funcProxy(1,2);
+    </script>
+</html>

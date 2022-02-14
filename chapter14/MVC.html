@@ -1,0 +1,42 @@
+<html>
+   
+
+    <script>
+    
+        function renderView(model)
+        {
+            console.log("Render model ",model);
+        }
+        function framework(model)
+        {
+            for(let [key,vlaue] of Object.entries(model))
+            {
+                if( typeof value !=="function")
+                {
+                    console.log(`Property ${key}`);
+                    model[`_${key}`] = model[`${key}`];
+                    Object.defineProperty(model,key,{
+                        set(newValue)
+                        {
+                            model[`_${key}`] = newValue;
+                            renderView(model);
+                        },
+                        get()
+                        {
+                            return model[`_${key}`];
+                        }
+                    });
+                }
+            }
+
+            return model;
+        }
+       let model = {
+           name : "TK",
+           age : 37,
+       };
+        framework(model);
+        model.age = "Something";
+        console.log("Obj ",model.name , " Age ",model.age);
+    </script>
+</html>
