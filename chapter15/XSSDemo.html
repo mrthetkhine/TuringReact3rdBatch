@@ -1,0 +1,24 @@
+<html>
+    <body>
+            <h1>Hello
+
+                <script>
+                   // alert("Ok");
+                </script>
+            </h1>
+    </body>
+
+<script>
+    function escapeHtml(unsafe)
+    {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+    let name = new URL(document.URL).searchParams.get("name");
+    document.querySelector('h1').innerHTML = "Hello " + escapeHtml(name); 
+ </script>
+</html>

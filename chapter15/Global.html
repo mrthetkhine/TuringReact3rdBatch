@@ -1,0 +1,24 @@
+<html>
+    <body>
+      
+    </body>
+    <script >
+        let data = "Hello";
+       console.log("Window ",this);
+       console.log("Window ",window);
+    </script>
+    <script>
+        console.log("Data is ",data);
+        function hello()
+        {
+            console.log("Hello invoked");
+        }
+    </script>
+    <script src="lib.js">
+
+    </script>
+     <script src="module.js">
+
+    </script>
+    <iframe src="LazyLoad.html"></iframe>
+</html>

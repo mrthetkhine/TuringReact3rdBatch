@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <button id="btnLoad" type="button">Load</button>
+    </body>
+    <script >
+       let btnLoad = document.querySelector("#btnLoad");
+       btnLoad.addEventListener("click",()=>loadScript("another.js"));
+
+       function loadScript(url)
+       {
+            console.log("Loading url ",url);
+            let scriptElement = document.createElement("script");
+            scriptElement.src = url;
+            scriptElement.onload = function()
+            {
+                console.log("JS load completed");
+            }
+            scriptElement.onerror = function()
+            {
+                console.log("JS load error occured");
+            }
+            document.head.append(scriptElement);
+       }
+    </script>
+
+</html>

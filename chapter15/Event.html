@@ -1,0 +1,38 @@
+<html>
+    <style>
+        #container
+        {
+            width:300;
+            height:300;
+            background-color: gray;
+        }
+    </style>
+    <body>
+       <div id="container" onclick="alert('Hello')" > 
+
+       </div>
+    </body>
+    
+    <script>
+        window.onload = function()
+        {
+            console.log("Window have been loaded");
+        }
+        let container = document.querySelector("#container");
+        container.addEventListener("click",(event)=>{
+            console.log("Div clicked");
+        });
+        document.addEventListener("click",(event)=>{
+            //console.log("event ",event);
+            console.log("Document clicked");
+        });
+        window.onload = function()
+        {
+            console.log("Window have been loaded2");
+        }
+        container.addEventListener("click",(event)=>{
+            console.log("Div clicked2");
+        });
+    </script>
+    
+</html>
