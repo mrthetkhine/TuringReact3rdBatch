@@ -1,0 +1,48 @@
+<html>
+    <style>
+        #container
+        {
+            width:300;
+            height:300;
+            background-color: gray;
+        }
+    </style>
+    <body>
+       <div id="container" > 
+
+       </div>
+       <a href="http://www.google.com" id="lnkNoWhere">Go to nowhere</a>
+    </body>
+    
+    <script>
+      
+        let container = document.querySelector("#container");
+        container.addEventListener("click",(event)=>{
+            console.log("Div clicked");
+            //event.stopPropagation();
+            ///event.stopImmediatePropagation();
+        },{
+            //capture: true,
+            //once: true,
+            //passive:true
+        });
+        container.addEventListener("click",(event)=>{
+            console.log("Div clicked 2");
+
+        });
+        document.addEventListener("click",(event)=>{
+            //console.log("event ",event);
+            console.log("Document clicked target ",event.target, " current target",event.currentTarget);
+        },{
+            //capture: true,
+        });
+        document.querySelector("#lnkNoWhere").addEventListener("click",(event)=>{
+            console.log("Click link");
+            event.preventDefault();
+        },{
+            passive : true,
+        });
+      
+    </script>
+    
+</html>

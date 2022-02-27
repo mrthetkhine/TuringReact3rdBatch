@@ -1,0 +1,27 @@
+<html>
+    
+    <body>
+      <h1 class="some">Hello</h1>
+      <h1 name="color">Hello2</h1>
+
+      <div class="some">
+          Div 
+      </div>
+    </body>
+    
+    <script>
+       console.log("H1 ",document.getElementsByName("color"));
+       console.log("H1 ",document.getElementsByTagName("h1"));
+       console.log("H1 ",document.getElementsByClassName("some"));
+
+        let allH1 = document.getElementsByTagName("h1");
+        for(let i=0,len = allH1.length; i < len;i++)
+        {
+            console.log("H1 ",allH1[i]);
+            let newH1 = document.createElement("h1");
+            newH1.textContent = "Hello "+ i;
+            document.body.appendChild(newH1);
+        }
+    </script>
+    
+</html>

@@ -1,0 +1,39 @@
+<html>
+    <style>
+        tr>td
+        {
+            border:1px solid gray;
+        }
+    </style>
+    <body>
+       <table id="container" > 
+            <tr border="1">
+                <td>
+                    one
+                </td>    
+            </tr>
+            <tr>
+                <td>
+                    Two
+                </td>    
+            </tr>
+            <tr>
+                <td>
+                    Three
+                </td>    
+            </tr>
+       </table>
+      
+    </body>
+    
+    <script>
+        document.querySelector("#container").addEventListener("click",function(event)
+        {
+            console.log("Click row ",event.target.closest("tr"));
+           
+        });
+       
+      
+    </script>
+    
+</html>

@@ -1,0 +1,46 @@
+<html>
+    
+    <body>
+      <h1 class="some">Hello</h1>
+      <h1 name="color" id="headerOne">Hello2</h1>
+
+      <div class="some">
+          Div 
+          <div>
+              One
+          </div>
+          <div>
+            Two
+        </div>
+        Hello
+      </div>
+    </body>
+    
+    <script>
+       let body = document.body;
+       console.log("Parent Node ",body.parentNode);
+       console.log("Children ",body.children); 
+       console.log("First element child ",body.firstElementChild); 
+       console.log("Last element child ",body.lastElementChild); 
+
+       let headerOne = document.querySelector("#headerOne");
+       console.log("Next Sibling ",headerOne.nextElementSibling);
+       console.log("Previous Sibling ",headerOne.previousElementSibling);
+
+       function traverse(element)
+       {
+            console.log("Element nodeType",element.nodeType, " Value ",element.nodeValue, " Name ",element.nodeName);
+           for(let child of element.children)
+           {
+               traverse(child);
+           }
+       }
+       traverse(body);
+
+       for(let node of body.childNodes)
+       {
+           console.log("Node ",node , " Name ",node.nodeName);
+       }
+    </script>
+    
+</html>

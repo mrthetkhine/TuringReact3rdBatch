@@ -1,0 +1,54 @@
+<html>
+    <style>
+        .red
+        {
+            color:red;
+        }
+    </style>
+    
+    <body bgColOR="gray" >
+      <h1 class="some">Hello</h1>
+      <h1 id="headerOne" data-priority="1" 
+                         data-some-data="Nothing"
+        class="some another" >Hello2</h1>
+
+      <div id="container">
+
+      </div>
+      <div id="container2">
+
+        </div>
+        <div id="date"> </div>
+    </body>
+    
+    <script>
+       let body = document.body;
+       body.bgColor="blue";
+       body.setAttribute("bgColor","green");
+       console.log("Get Attribute ",body.getAttribute("bgColor"));
+       console.log("Get Attribute ",body.hasAttribute("bgColor"));
+       setTimeout(function(){
+            body.removeAttribute("bgColor");
+            
+       },1000);
+
+       let headerOne = document.querySelector("#headerOne");
+       console.log("Class ",headerOne.classList);
+       headerOne.classList.add("red");
+       headerOne.classList.remove("some");
+
+       console.log("data ",headerOne.dataset.priority);
+       console.log("data ",headerOne.dataset.someData);
+
+       let container = document.querySelector("#container");
+       container.innerHTML = "<h1> Hello by inner HTML</h1>";
+
+       let container2 = document.querySelector("#container2");
+       container2.outerHTML = "<h1> Set by outer HTML</h1>";
+       container.insertAdjacentHTML("afterbegin","<b>Added</b>");
+
+       let dateContainer = document.querySelector("#date");
+       dateContainer.textContent = "<h1>" +new Date()+"</h1>";
+    </script>
+    
+</html>

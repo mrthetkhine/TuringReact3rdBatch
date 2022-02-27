@@ -1,0 +1,24 @@
+<html>
+    <style>
+        tr>td
+        {
+            border:1px solid gray;
+        }
+    </style>
+    <body>
+       <form action="http://www.google.com">
+            <button type="submit" id="btnSubmit" onclick="return false">Submit</button>
+       </form>
+      
+    </body>
+    
+    <script>
+        document.querySelector("#btnSubmit").addEventListener("click",function(event)
+        {
+            return false;
+        });
+       
+      
+    </script>
+    
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <style>
+        .red
+        {
+            color:red;
+        }
+    </style>
+    
+    <body >
+      <h1 class="some">Hello</h1>
+      
+      </div>
+      <div id="container2">
+        Container 2
+        </div>
+    <div id="date"> </div>
+    </body>
+    
+    <script>
+       let body = document.body;
+       let h1 = document.createElement("h1");
+       h1.textContent = "New Node Hello";
+       body.append(h1);
+
+       let h2 = document.createElement("h1");
+       h2.textContent = "Preprend body h2";
+       body.prepend(h2);
+
+       let container2 = document.querySelector("#container2");
+       let paragraph = document.createElement("p");
+       paragraph.textContent = "After container2"
+       container2.after(paragraph);
+
+       let div = document.createElement("div");
+       div.textContent = "Before contianer 2"
+       container2.before(div);
+
+       body.prepend(div.cloneNode(true));
+
+       div.remove();
+
+      h2.replaceWith(div);  
+       
+    </script>
+    
+</html>

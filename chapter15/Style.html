@@ -1,0 +1,57 @@
+<html>
+    <style>
+        .transparent { opacity: 0; }
+        .fadeable { transition: opacity .5s ease-in }
+
+        #test
+        {
+            height: 1500;
+        }
+    </style>
+    
+    <body >
+      <h1 >Hello</h1>
+      
+      </div>
+        <div id="container" class="transparent">
+        Container 
+        </div>
+        <div id="date"> Hello Date</div>
+
+       <div id="test">
+           Test
+           </div>
+        <button id="toTop">Top</button>
+    </body>
+    
+    <script>
+       let body = document.body;
+       let container = document.querySelector("#container");
+       container.style.background = "blue";
+       
+       //console.log("GetCompute Style ",window.getComputedStyle(container));
+
+       setTimeout(function()
+       {
+
+        container.classList.remove("transparent");    
+        container.classList.add("fadeable");
+        console.log("Done");
+       },1000);
+       let date = document.querySelector("#date");
+       console.log("Date.getBoundingClientRect rectangle ", date.getBoundingClientRect());
+
+       document.addEventListener("click",function(event)
+       {
+            console.log("Event ",event);
+            console.log("Element ",document.elementFromPoint(event.clientX,event.clientY));
+       });
+       let btnTop = document.querySelector("#toTop");
+       btnTop.addEventListener("click",function()
+       {
+           //window.scrollTo(0,0);
+           window.scrollBy(0,-100);
+       });
+    </script>
+    
+</html>

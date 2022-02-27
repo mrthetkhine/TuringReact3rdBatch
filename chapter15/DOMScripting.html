@@ -1,0 +1,117 @@
+<html>
+    <style>
+        div
+        {
+            color:green;
+        }
+        #secondDiv
+        {
+            background-color: gray;
+        }
+        .my-background
+        {
+            border: 1px solid gray;
+        }
+        h1[lang="fr"]
+        {
+            color:aqua;
+        }
+        input[type="text"]
+        {
+            border:1px solid gray;
+            border-radius: 10px;
+        }
+        div.my-background
+        {
+            border:1px solid gray;
+        }
+        div span
+        {
+            color: chocolate;
+        }
+        div>span
+        {
+            color: red;
+        }
+        div>p:nth-child(2)
+        {
+            color: red;
+        }
+        span + h1
+        {
+            color: red;
+        }
+        p ~ h2
+        {
+            color: red;
+        }
+        p,h1
+        {
+            color: green;
+        }
+    </style>
+    <body>
+     
+            <div>
+                Hello
+                <p>
+                    <span> Span iside div</span>
+                </p>
+                <p>
+                    Second Paragraph
+                </p>
+                <span>
+
+                    Immediate Child
+                </span>
+            </div>
+            <span>
+                Outer span
+            </span>
+            <div id="secondDiv">
+                How are you
+            </div>
+
+            <div class="my-background">
+                My Background 1
+
+            </div>
+            <h1 class="my-background" lang="fr">
+                My Background 1
+            </h1>
+            <h1 class="my-background" lang="eng">
+                My Background 2
+            </h1>
+
+            <form>
+                <label> Name</label>
+                <input type="text"/>
+                <br/>
+                <label> Address</label>
+                <input type="text"/>
+                <br/>
+            </form>
+
+            <span>
+                Last span
+            </span>
+            <h1>
+                Hello 
+            </h1>
+            <h1>
+                Hello 2
+            </h1>
+
+            <p>
+                Hello paragraph
+            </p>
+            <h2> Flollwed by</h2>
+    </body>
+    
+    <script>
+       console.log("document ",document);
+       console.log("head ",document.head);
+       console.log("2nd div ",document.querySelector("div:nth-child(2)"));
+    </script>
+    
+</html>
