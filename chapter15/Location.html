@@ -1,0 +1,44 @@
+<html>
+    <style>
+        .transparent { opacity: 0; }
+        .fadeable { transition: opacity .5s ease-in }
+
+       
+    </style>
+    
+    <body >
+      <h1 >Hello</h1>
+      
+      </div>
+        <div id="container" class="transparent">
+        Container 
+        </div>
+        <div id="date"> Hello Date</div>
+
+       <div id="test">
+           Test
+           </div>
+        <button id="btnGoogle">Google</button>
+        <button id="btnBack">Back</button>
+    </body>
+    
+    <script>
+       console.log("Window.location ",window.location);
+       let url = new URL(window.location);
+       let q = url.searchParams.get("q");
+       console.log("Query ",q);
+
+       let btnGoogle = document.querySelector("#btnGoogle");
+        btnGoogle.addEventListener("click",()=>{
+            window.location = "https://www.google.com"
+        });
+
+        document.querySelector("#btnBack").addEventListener("click",()=>{
+            history.go(-1);
+        });
+        window.addEventListener("hashchange",(event)=>{
+            console.log("Event ",event);
+        });
+    </script>
+    
+</html>

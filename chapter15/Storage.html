@@ -1,0 +1,29 @@
+<html>
+    <style>
+      
+    </style>
+    
+    <body >
+      
+    </body>
+    
+    <script>
+       
+        window.addEventListener('storage', (event) => {
+      
+            console.log("Event ",event);
+        });
+        let userName = localStorage.getItem("username");
+        if(!userName)
+        {
+            userName = prompt("Enter your name");
+            localStorage.setItem("username",userName);
+        }
+        else
+        {
+            console.log("Username is ",userName);
+        }
+        console.log("Cookie ",document.cookie);
+    </script>
+    
+</html>
