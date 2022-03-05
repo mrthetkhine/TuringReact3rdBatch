@@ -1,0 +1,12 @@
+<html>
+    
+    <script>
+       let worker = new Worker("worker.js");
+       worker.postMessage(5);
+       worker.onmessage = function(e)
+       {
+           console.log("Result received ",e.data);
+       }
+    </script>
+    
+</html>
