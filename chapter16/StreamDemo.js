@@ -18,9 +18,9 @@ const server = http.createServer((req, res) => {
   req.on('end', () => {
     try {
         console.log("body ",body);
-      const data = JSON.parse({text:"Hello"});
+      const data = JSON.stringify({text:"Hello"});
       // Write back something interesting to the user:
-      res.write(typeof data);
+      res.write(data);
       res.end();
     } catch (er) {
       // uh oh! bad json!
