@@ -1,0 +1,231 @@
+mongo
+
+show dbs;//show database;
+
+//create database
+use react_third_batch;
+
+db.movies.insertOne({
+    title: "The Godfather",
+    year:1972,
+    image:""
+});
+
+db.movies.insertOne({
+    title: "The Dark Knight",
+    year:2008
+});
+
+db.movies.insertMany([
+    {
+        title: "Titanic",
+        year:1997
+    },
+    {
+        title: "Inception",
+        year:2010
+    }
+]);
+
+db.movies.insertMany([
+    {
+        title: "Titanic",
+        year:1997,
+        genre:"Romance"
+    },
+    {
+        title: "Inception",
+        year:2010
+    }
+]);
+
+db.actors.insertOne({
+    name:"Morgan Freeman",
+    birthday:new Date(1937,5,1).getTime(),
+    gender:"M"
+})
+db.actors.insertOne({
+    name:"Leonardo DiCaprio",
+    birthday:new Date(1974,10,11).getTime(),
+    gender:"M"
+})
+
+db.actors.insertOne({
+    name:"Kate Winslet",
+    birthday:new Date(1975,9,5).getTime(),
+    gender:"F",
+    address:{
+        street:"Some Street",
+        city:"Lodon"
+    }
+});
+//Query
+db.movies.find({})
+db.actors.find({name:"Morgan Freeman"})
+
+//OR
+db.actors.find({
+    gender:{
+        $in:["M","F"]
+    } 
+})
+
+//And
+db.actors.find({
+    name:"Morgan Freeman",
+    gender:"M"
+    })
+
+//OR
+db.actors.find({
+    $or:[
+        {
+            name:"Morgan Freeman"
+        },
+        {
+            gender:"M"
+        }
+    ]
+})
+
+db.movies.find({
+    year : {$lt:2010}
+});
+
+db.actors.find({
+    name : /^M/
+});
+
+db.actors.find({ "address.street":/^S/})
+
+db.movies.insertOne({
+    title: "Life is beautiful",
+    year:1997,
+    genre:["Romance","Drama"]
+});
+
+{
+    genre:{ $all:["Romance"]}
+}
+db.movies.findOne({
+    genre:"Romance"
+});
+
+db.movies.find({
+    year:{$gt:2000, $lt:2020}
+});
+
+{
+    price:[10,20,30]
+}
+
+db.movies.find({
+    genre:{$size:2}
+});
+
+db.actors.insertOne({
+    name:"Al Pacino",
+    gender:"M",
+    cars : [
+        {
+            brand : "Audi",
+            model : 2010
+        },
+        {
+            brand : "BMW",
+            model : 2020
+        },
+    ]
+});
+
+{cars:
+    { 
+        $elemMatch:{model:2010}
+    }
+}
+
+db.actors.find(
+    {cars:
+    { 
+        $elemMatch:{model:2010}
+    }
+},
+  {
+    cars:1
+  }
+);
+db.actors.find(
+    {cars:
+    { 
+        $elemMatch:{model:2010}
+    }
+},
+  {
+    cars:0
+  }
+);
+
+db.actors.updateOne({
+    "_id" : ObjectId("622f493cb0b080b80fcb108a")
+},{
+    $set:{
+       cars : [
+        {
+            brand : "Audi",
+            model : 2015
+        },
+        {
+            brand : "BMW",
+            model : 2020
+        },
+        {
+            brand : "Porsche",
+            model : 2050
+        },
+    ]
+    }
+});
+
+db.actors.updateOne({
+    "_id" : ObjectId("622f493cb0b080b80fcb108a")
+},{
+    $set:{
+       cars : [
+        {
+            brand : "Audi",
+            model : 2015
+        },
+        {
+            brand : "BMW",
+            model : 2020
+        },
+        {
+            brand : "Porsche",
+            model : 2050
+        },
+        ],
+        mansion:["london"]
+    }
+});
+
+db.actors.updateOne({
+    "_id" : ObjectId("622f493cb0b080b80fcb108a")
+},{
+    $set:{
+       cars : [
+        {
+            brand : "Audi",
+            model : 2015
+        },
+        {
+            brand : "BMW",
+            model : 2020
+        },
+        {
+            brand : "Porsche",
+            model : 2050
+        },
+        ]
+    },
+    $unset:{"mansion":null}
+});
