@@ -229,3 +229,5 @@ db.actors.updateOne({
     },
     $unset:{"mansion":null}
 });
+
+db.movies.deleteOne({"_id" : ObjectId("622f38fab0b080b80fcb1082")})

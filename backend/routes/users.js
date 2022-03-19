@@ -3,6 +3,8 @@ var router = express.Router();
 let users = require('../controllers/UsersController');
 let path = require('path');
 /* GET users listing. */
+
+/*
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
@@ -30,10 +32,12 @@ router.get('/sendFile', function(req, res, next) {
   res.sendFile(filePath);
 });
 
-router.get('/:userId', users.getUserById);
+
 
 router.get('/download', function(req, res, next) {
   res.download('./public/demo.txt');
   //res.end();
 });
+*/
+router.get('/:userId', users.getUserById);
 module.exports = router;
