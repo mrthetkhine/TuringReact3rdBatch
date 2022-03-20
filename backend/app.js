@@ -12,6 +12,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let adminRouter = require('./routes/admin');
 let movieRouter = require('./routes/movies');
+let reviewRouter = require('./routes/reviews');
 
 var app = express();
 
@@ -44,7 +45,7 @@ app.use('/admin/*',function(req,res,next)
 app.use('/admin',adminRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/movies', movieRouter);
-
+app.use('/api/reviews', reviewRouter);
 
 app.use('/test',(req,res,next)=>{
   res.send('Test router');
