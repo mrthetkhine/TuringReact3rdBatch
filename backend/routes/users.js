@@ -39,5 +39,8 @@ router.get('/download', function(req, res, next) {
   //res.end();
 });
 */
+
 router.get('/:userId', users.getUserById);
+router.post('/', users.registerUser);
+router.post('/login', users.login);
 module.exports = router;
