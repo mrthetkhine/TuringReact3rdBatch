@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 const { db } = require('./config/database');
 
 let customLogger = require('./middleware/DemoLogger');
+let auth = require('./middleware/auth');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let adminRouter = require('./routes/admin');
@@ -44,8 +46,8 @@ app.use('/admin/*',function(req,res,next)
  */
 app.use('/admin',adminRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/movies', movieRouter);
-app.use('/api/reviews', reviewRouter);
+app.use('/api/movies',auth.verifyUserToken, movieRouter);
+app.use('/api/reviews',auth.verifyUserToken, reviewRouter);
 
 app.use('/test',(req,res,next)=>{
   res.send('Test router');

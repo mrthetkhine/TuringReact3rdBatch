@@ -1,6 +1,6 @@
 let movieService = require('../services/MovieService');
 const getAllMovie = async function (req, res, next) {
-    //console.log('Movie service ',res);
+    console.log('Movie controller user ',req.user);
     try {
         const movies = await movieService.getAllMovie();
         if(!movies) throw Error('No movies');
