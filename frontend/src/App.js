@@ -5,7 +5,12 @@ import Hello from "./components/Hello";
 import Welcome from "./components/class_component/Welcome";
 import AcceptComponent from "./components/AcceptComponent";
 import Counter from "./components/class_component/Counter";
-
+import ApiLoader from "./components/class_component/ApiLoader";
+import EventComponent from "./components/class_component/EventComponent";
+import ListItem from "./components/class_component/ListItem";
+import Greeting from "./components/class_component/Greeting";
+import Loader from "./components/class_component/Loader";
+import FormDemo from "./components/form/FormDemo";
 
 function App() {
     let user ={
@@ -13,6 +18,7 @@ function App() {
         age : 37
     };
   let welcomeCom = <Welcome text={"Welcome to React"}/>;
+  let data = ["Orange","Apple","Banana"];
   return (
     <div className="App">
       {/*  <Hello user={user}
@@ -20,8 +26,15 @@ function App() {
             <div>Children to Hello<script>alert('Hello')</script></div>
         </Hello>
         {welcomeCom}*/}
-        <AcceptComponent child={welcomeCom}/>
-        <Counter/>
+       {/* <AcceptComponent child={welcomeCom}/>
+        <Counter inc={2}/>*/}
+       {/* <Counter/>*/}
+       {/*<ApiLoader/>*/}
+      {/* <EventComponent/>*/}
+     {/* <ListItem data={data}/>*/}
+      {/*<Greeting isAdmin={true}></Greeting>*/}
+    {/*  <Loader />*/}
+    <FormDemo/>
     </div>
   );
 }
