@@ -1,0 +1,13 @@
+.tab-header
+{
+    min-width: 50px;
+    border:1px solid gray;
+    padding:5px;
+}
+.tab-body
+{
+    min-height: 200px;
+    border:1px solid gray;
+    padding:5px;
+    margin:10px;
+}

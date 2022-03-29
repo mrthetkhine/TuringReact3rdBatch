@@ -11,6 +11,9 @@ import ListItem from "./components/class_component/ListItem";
 import Greeting from "./components/class_component/Greeting";
 import Loader from "./components/class_component/Loader";
 import FormDemo from "./components/form/FormDemo";
+import BasicForm from "./components/formik/BasicForm";
+import YupForm from "./components/formik/YupForm";
+import Tab from "./components/tab/Tab";
 
 function App() {
     let user ={
@@ -34,7 +37,20 @@ function App() {
      {/* <ListItem data={data}/>*/}
       {/*<Greeting isAdmin={true}></Greeting>*/}
     {/*  <Loader />*/}
-    <FormDemo/>
+   {/* <FormDemo/>*/}
+   {/*<BasicForm/>*/}
+      {/*  {<YupForm/>}*/}
+      <Tab headers={data}>
+            <div>
+                <h1> Tab body 1</h1>
+            </div>
+          <div>
+              <h1> Tab body 2</h1>
+          </div>
+          <div>
+              <h1> Tab body 3</h1>
+          </div>
+      </Tab>
     </div>
   );
 }
