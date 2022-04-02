@@ -18,7 +18,7 @@ TabHeader.propTypes = {
     onClick: PropTypes.func,
     header: PropTypes.any
 };
-class TabBody extends React.Component
+export class TabBody extends React.Component
 {
     constructor(props) {
         super(props);
@@ -31,6 +31,7 @@ class TabBody extends React.Component
             </div>);
     }
 }
+
 class Tab extends React.Component
 {
     constructor(props) {

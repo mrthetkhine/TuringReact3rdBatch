@@ -14,6 +14,9 @@ import FormDemo from "./components/form/FormDemo";
 import BasicForm from "./components/formik/BasicForm";
 import YupForm from "./components/formik/YupForm";
 import Tab from "./components/tab/Tab";
+import FragmentDemo from "./components/fragment/FragmentDemo";
+import FocusDemo from "./components/FocusDemo";
+import LazyDemo from "./components/lazy/LazyDemo";
 
 function App() {
     let user ={
@@ -39,7 +42,7 @@ function App() {
     {/*  <Loader />*/}
    {/* <FormDemo/>*/}
    {/*<BasicForm/>*/}
-      {/*  {<YupForm/>}*/}
+    {/*    <YupForm/>}
       <Tab headers={data}>
             <div>
                 <h1> Tab body 1</h1>
@@ -50,7 +53,10 @@ function App() {
           <div>
               <h1> Tab body 3</h1>
           </div>
-      </Tab>
+      </Tab>*/}
+      {/*<FragmentDemo/>*/}
+      {/*  <FocusDemo/>*/}
+      <LazyDemo/>
     </div>
   );
 }
