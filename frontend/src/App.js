@@ -17,7 +17,13 @@ import Tab from "./components/tab/Tab";
 import FragmentDemo from "./components/fragment/FragmentDemo";
 import FocusDemo from "./components/FocusDemo";
 import LazyDemo from "./components/lazy/LazyDemo";
-
+import MyContext from "./components/context/MyContext";
+import ParentComponent from "./components/context/ParentComponent";
+import UpdateContext from "./components/context/UpdateContext";
+import FancyButtonDemo from "./components/forward_ref/FancyButtonDemo";
+import logProps from "./components/hoc/logProps";
+import DatePicker from "./components/thrid_party/DatePicker";
+let LoggedComponent = logProps(Welcome);
 function App() {
     let user ={
         name: "Someone",
@@ -25,6 +31,7 @@ function App() {
     };
   let welcomeCom = <Welcome text={"Welcome to React"}/>;
   let data = ["Orange","Apple","Banana"];
+
   return (
     <div className="App">
       {/*  <Hello user={user}
@@ -56,7 +63,13 @@ function App() {
       </Tab>*/}
       {/*<FragmentDemo/>*/}
       {/*  <FocusDemo/>*/}
-      <LazyDemo/>
+    {/*  <LazyDemo/>*/}
+
+    {/*<UpdateContext/>*/}
+  {/* <FancyButtonDemo/>*/}
+  {/* <LoggedComponent text={"This is label passed to Welcome"}
+                    loading={false}/>*/}
+    <DatePicker/>
     </div>
   );
 }
