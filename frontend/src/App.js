@@ -23,6 +23,10 @@ import UpdateContext from "./components/context/UpdateContext";
 import FancyButtonDemo from "./components/forward_ref/FancyButtonDemo";
 import logProps from "./components/hoc/logProps";
 import DatePicker from "./components/thrid_party/DatePicker";
+import RuntimeTypeDemo from "./components/runtime_type/RuntimeTypeDemo";
+import RepeatDemo from "./components/function_as_child/RepeatDemo";
+import Modal from "./components/portal/Modal";
+import DefaultProperty from "./components/DefaultProperty";
 let LoggedComponent = logProps(Welcome);
 function App() {
     let user ={
@@ -69,7 +73,12 @@ function App() {
   {/* <FancyButtonDemo/>*/}
   {/* <LoggedComponent text={"This is label passed to Welcome"}
                     loading={false}/>*/}
-    <DatePicker/>
+  {/*  <DatePicker/>*/}
+   {/*<RuntimeTypeDemo/>*/}
+  {/* <Modal>
+       <RepeatDemo/>
+   </Modal>*/}
+    <DefaultProperty title={'4'}/>
     </div>
   );
 }
