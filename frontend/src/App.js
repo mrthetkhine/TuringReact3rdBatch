@@ -27,6 +27,10 @@ import RuntimeTypeDemo from "./components/runtime_type/RuntimeTypeDemo";
 import RepeatDemo from "./components/function_as_child/RepeatDemo";
 import Modal from "./components/portal/Modal";
 import DefaultProperty from "./components/DefaultProperty";
+import MouseTracker, {Cat} from "./components/render_prop/MouseTracker";
+import UnControlled from "./components/uncontrolled/UnControlled";
+import HookCounter from "./components/hooks/HookCounter";
+import ComplexObject from "./components/hooks/ComplexObject";
 let LoggedComponent = logProps(Welcome);
 function App() {
     let user ={
@@ -78,7 +82,11 @@ function App() {
   {/* <Modal>
        <RepeatDemo/>
    </Modal>*/}
-    <DefaultProperty title={'4'}/>
+    {/*<DefaultProperty title={'4'}/>*/}
+   {/* <MouseTracker render={mouse=> <Cat mouse={mouse}/>}/>*/}
+   {/*<UnControlled/>*/}
+  {/* <HookCounter/>*/}
+    <ComplexObject/>
     </div>
   );
 }
