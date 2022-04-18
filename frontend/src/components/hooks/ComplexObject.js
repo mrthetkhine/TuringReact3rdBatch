@@ -7,6 +7,9 @@ const ComplexObject = (props)=>{
     let [toDo,setToDo] = useState('');
     let [items,setItem] = useState(['One']);
     let count =0;
+    useEffect(()=>{
+       console.log("Backend API call");
+    },[]);
     useEffect(() => {
         // Update the document title using the browser API
         document.title = `You clicked ${count++} times`;
@@ -16,15 +19,15 @@ const ComplexObject = (props)=>{
             console.log("Clean up function");
         };
         return cleanUp;
-    });
-    /*
+    },[items]);
+
     useEffect(() => {
         // Update the document title using the browser API
 
         console.log('Use effect2 called');
     });
 
-     */
+
     let addToDo = ()=>{
         setItem([...items,toDo]);
         setToDo('');
@@ -35,8 +38,10 @@ const ComplexObject = (props)=>{
         <form>
             <label>
                 To Do
-                <input type={"text"} value={toDo} onChange={(event)=>{
-                    setToDo(event.target.value);
+                <input type={"text"}
+                       value={toDo}
+                       onChange={(event)=>{
+                        setToDo(event.target.value);
                 }} />
             </label>
             <button type={"button"}

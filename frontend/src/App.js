@@ -31,6 +31,10 @@ import MouseTracker, {Cat} from "./components/render_prop/MouseTracker";
 import UnControlled from "./components/uncontrolled/UnControlled";
 import HookCounter from "./components/hooks/HookCounter";
 import ComplexObject from "./components/hooks/ComplexObject";
+import ContextHookDemo from "./components/hooks/ContextHookDemo";
+import CounterWithState from "./components/hooks/reduce/CounterWithState";
+import CounterWithReducer from "./components/hooks/reduce/CounterWithReducer";
+import ToDoWithReducer from "./components/hooks/reduce/ToDoWithReducer";
 let LoggedComponent = logProps(Welcome);
 function App() {
     let user ={
@@ -86,7 +90,11 @@ function App() {
    {/* <MouseTracker render={mouse=> <Cat mouse={mouse}/>}/>*/}
    {/*<UnControlled/>*/}
   {/* <HookCounter/>*/}
-    <ComplexObject/>
+  {/*  <ComplexObject/>*/}
+  {/* <ContextHookDemo/>*/}
+  {/*<CounterWithState/>*/}
+  {/*<CounterWithReducer initialCount={20}/>*/}
+  <ToDoWithReducer/>
     </div>
   );
 }
