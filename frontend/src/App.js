@@ -35,6 +35,11 @@ import ContextHookDemo from "./components/hooks/ContextHookDemo";
 import CounterWithState from "./components/hooks/reduce/CounterWithState";
 import CounterWithReducer from "./components/hooks/reduce/CounterWithReducer";
 import ToDoWithReducer from "./components/hooks/reduce/ToDoWithReducer";
+import MemoHook from "./components/hooks/MemoHook";
+import TextInputWithFocusButton from "./components/hooks/TextInputWithFocusButton";
+import UseImperativeParent from "./components/hooks/UseImperativeParent";
+import UseIdDemo from "./components/hooks/UseIdDemo";
+import ToDoWithCustomReducer from "./components/hooks/ToDoWithCustomReducer";
 let LoggedComponent = logProps(Welcome);
 function App() {
     let user ={
@@ -94,7 +99,12 @@ function App() {
   {/* <ContextHookDemo/>*/}
   {/*<CounterWithState/>*/}
   {/*<CounterWithReducer initialCount={20}/>*/}
-  <ToDoWithReducer/>
+  {/*<ToDoWithReducer/>*/}
+  {/*<MemoHook/>*/}
+{/*  <TextInputWithFocusButton/>*/}
+{/*<UseImperativeParent/>*/}
+{/*<UseIdDemo/>*/}
+<ToDoWithCustomReducer/>
     </div>
   );
 }
