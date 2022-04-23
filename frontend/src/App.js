@@ -40,6 +40,7 @@ import TextInputWithFocusButton from "./components/hooks/TextInputWithFocusButto
 import UseImperativeParent from "./components/hooks/UseImperativeParent";
 import UseIdDemo from "./components/hooks/UseIdDemo";
 import ToDoWithCustomReducer from "./components/hooks/ToDoWithCustomReducer";
+import LoadUser from "./components/unit_testing/LoadUser";
 let LoggedComponent = logProps(Welcome);
 function App() {
     let user ={
@@ -51,6 +52,7 @@ function App() {
 
   return (
     <div className="App">
+        <h1> learn react</h1>
       {/*  <Hello user={user}
                 isAdmin={false}>
             <div>Children to Hello<script>alert('Hello')</script></div>
@@ -104,7 +106,8 @@ function App() {
 {/*  <TextInputWithFocusButton/>*/}
 {/*<UseImperativeParent/>*/}
 {/*<UseIdDemo/>*/}
-<ToDoWithCustomReducer/>
+{/*<ToDoWithCustomReducer/>*/}
+<LoadUser/>
     </div>
   );
 }
