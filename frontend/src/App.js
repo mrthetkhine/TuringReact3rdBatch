@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import React from "react";
+
 import './App.css';
 import Hello from "./components/Hello";
 import Welcome from "./components/class_component/Welcome";
@@ -41,6 +42,7 @@ import UseImperativeParent from "./components/hooks/UseImperativeParent";
 import UseIdDemo from "./components/hooks/UseIdDemo";
 import ToDoWithCustomReducer from "./components/hooks/ToDoWithCustomReducer";
 import LoadUser from "./components/unit_testing/LoadUser";
+import {Link,Outlet} from "react-router-dom";
 let LoggedComponent = logProps(Welcome);
 function App() {
     let user ={
@@ -52,6 +54,17 @@ function App() {
 
   return (
     <div className="App">
+        <nav
+            style={{
+                borderBottom: "solid 1px",
+                paddingBottom: "1rem",
+            }}
+        >
+            <Link to="/invoices">Invoices</Link> |{" "}
+            <Link to="/expenses">Expenses</Link> |{" "}
+            <Link to="/users">Users</Link> |{" "}
+        </nav>
+        <Outlet />
         <h1> learn react</h1>
       {/*  <Hello user={user}
                 isAdmin={false}>
@@ -107,7 +120,7 @@ function App() {
 {/*<UseImperativeParent/>*/}
 {/*<UseIdDemo/>*/}
 {/*<ToDoWithCustomReducer/>*/}
-<LoadUser/>
+{/*<LoadUser/>*/}
     </div>
   );
 }

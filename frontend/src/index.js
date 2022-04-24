@@ -1,15 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter,Routes,Route } from "react-router-dom";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import Hello from './components/Hello';
 import reportWebVitals from './reportWebVitals';
-
+import Expense from "./routes/Expense";
+import Invoice from "./routes/Invoice";
+import NotFound from "./routes/NotFound";
+import LoadUser from "./components/unit_testing/LoadUser";
+import User from "./components/unit_testing/User";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<App />}>
+                  <Route path="expenses" element={<Expense />} />
+                  <Route path="invoices" element={<Invoice />} />
+                  <Route path="users" element={<LoadUser />} >
+                      <Route path=":userId" element={<User />} />
+                  </Route>
+                  <Route path="*" element={<NotFound/>}/>
+              </Route>
+          </Routes>
 
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
