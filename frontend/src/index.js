@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import store from './store/store';
+import { Provider } from 'react-redux'
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,19 +16,22 @@ import LoadUser from "./components/unit_testing/LoadUser";
 import User from "./components/unit_testing/User";
 ReactDOM.render(
   <React.StrictMode>
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<App />}>
-                  <Route path="expenses" element={<Expense />} />
-                  <Route path="invoices" element={<Invoice />} />
-                  <Route path="users" element={<LoadUser />} >
-                      <Route path=":userId" element={<User />} />
-                  </Route>
-                  <Route path="*" element={<NotFound/>}/>
-              </Route>
-          </Routes>
+      <Provider store={store}>
+          <BrowserRouter>
+              <Routes>
+                  <Route path="/" element={<App />}>
+                      <Route path="expenses" element={<Expense />} />
+                      <Route path="invoices" element={<Invoice />} />
 
-      </BrowserRouter>
+                      <Route path="users" element={<LoadUser />} >
+                          <Route path=":userId" element={<User />} />
+                      </Route>
+                      <Route path="*" element={<NotFound/>}/>
+                  </Route>
+              </Routes>
+
+          </BrowserRouter>
+      </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

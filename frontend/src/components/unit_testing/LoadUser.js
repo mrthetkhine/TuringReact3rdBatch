@@ -21,7 +21,8 @@ const LoadUser = ()=> {
     return(<div>
         <h1>Load User</h1> {users.length}
 
-        {users.length >0  &&<nav>
+        {users.length >0  &&
+        <nav>
             <ul data-testid="user-list" >
             { users.map(user=>{
                 return(<li key={user.id} data-testid="user-item">

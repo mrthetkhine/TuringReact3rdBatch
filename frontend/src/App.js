@@ -1,6 +1,11 @@
 import logo from './logo.svg';
 import React from "react";
 
+import {
+    useParams,
+    useNavigate,
+    useLocation,
+} from "react-router-dom";
 import './App.css';
 import Hello from "./components/Hello";
 import Welcome from "./components/class_component/Welcome";
@@ -42,7 +47,8 @@ import UseImperativeParent from "./components/hooks/UseImperativeParent";
 import UseIdDemo from "./components/hooks/UseIdDemo";
 import ToDoWithCustomReducer from "./components/hooks/ToDoWithCustomReducer";
 import LoadUser from "./components/unit_testing/LoadUser";
-import {Link,Outlet} from "react-router-dom";
+import {Link, Outlet, Route} from "react-router-dom";
+import ReduxCounter from "./features/counter/ReduxCounter";
 let LoggedComponent = logProps(Welcome);
 function App() {
     let user ={
@@ -51,6 +57,13 @@ function App() {
     };
   let welcomeCom = <Welcome text={"Welcome to React"}/>;
   let data = ["Orange","Apple","Banana"];
+    let navigate = useNavigate();
+    let location = useLocation();
+    console.log('Location ',location);
+    let params = useParams();
+  let btnOnClick=()=>{
+      navigate('/users');
+  };
 
   return (
     <div className="App">
@@ -61,11 +74,17 @@ function App() {
             }}
         >
             <Link to="/invoices">Invoices</Link> |{" "}
+            <Link to="/invoices?data=vans">Invoice vans</Link>|{" "}
             <Link to="/expenses">Expenses</Link> |{" "}
             <Link to="/users">Users</Link> |{" "}
         </nav>
         <Outlet />
         <h1> learn react</h1>
+        {/*<button type={"button"}
+                className={"btn btn-primary"}
+                onClick={btnOnClick}>
+            Go To Users
+        </button>*/}
       {/*  <Hello user={user}
                 isAdmin={false}>
             <div>Children to Hello<script>alert('Hello')</script></div>
@@ -121,6 +140,7 @@ function App() {
 {/*<UseIdDemo/>*/}
 {/*<ToDoWithCustomReducer/>*/}
 {/*<LoadUser/>*/}
+<ReduxCounter/>
     </div>
   );
 }
