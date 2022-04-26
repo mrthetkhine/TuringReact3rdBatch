@@ -49,8 +49,13 @@ import ToDoWithCustomReducer from "./components/hooks/ToDoWithCustomReducer";
 import LoadUser from "./components/unit_testing/LoadUser";
 import {Link, Outlet, Route} from "react-router-dom";
 import ReduxCounter from "./features/counter/ReduxCounter";
+import ReduxToDo from "./features/todo/ReduxToDo";
+import {useSelector} from "react-redux";
 let LoggedComponent = logProps(Welcome);
+
+
 function App() {
+    const toDo = useSelector((state) => state.toDo);
     let user ={
         name: "Someone",
         age : 37
@@ -79,7 +84,7 @@ function App() {
             <Link to="/users">Users</Link> |{" "}
         </nav>
         <Outlet />
-        <h1> learn react</h1>
+        <h1> To do count {toDo.items.length}</h1>
         {/*<button type={"button"}
                 className={"btn btn-primary"}
                 onClick={btnOnClick}>
@@ -141,6 +146,7 @@ function App() {
 {/*<ToDoWithCustomReducer/>*/}
 {/*<LoadUser/>*/}
 <ReduxCounter/>
+      <ReduxToDo/>
     </div>
   );
 }
