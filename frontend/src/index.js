@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import store from './app/store';
+import {injectStore} from "./setting/our_axios";
+
+
 import { Provider } from 'react-redux'
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import './index.css';
@@ -14,18 +17,26 @@ import Invoice from "./routes/Invoice";
 import NotFound from "./routes/NotFound";
 import LoadUser from "./components/unit_testing/LoadUser";
 import User from "./components/unit_testing/User";
+import MovieListPage from "./pages/MovieListPage";
+import MovieListDetailPage from "./pages/MovieListDetailPage";
+
+injectStore(store);
 ReactDOM.render(
   <React.StrictMode>
       <Provider store={store}>
           <BrowserRouter>
               <Routes>
                   <Route path="/" element={<App />}>
-                      <Route path="expenses" element={<Expense />} />
+                      {/*<Route path="expenses" element={<Expense />} />
                       <Route path="invoices" element={<Invoice />} />
 
                       <Route path="users" element={<LoadUser />} >
                           <Route path=":userId" element={<User />} />
+                      </Route>*/}
+                      <Route path={"/movie-list"} element={<MovieListPage/>}>
+
                       </Route>
+                      <Route path={"/movie-list/:movieId"} element={<MovieListDetailPage/>}/>
                       <Route path="*" element={<NotFound/>}/>
                   </Route>
               </Routes>

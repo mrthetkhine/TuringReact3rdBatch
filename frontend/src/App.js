@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import React from "react";
+import React, {useEffect} from "react";
 
 import {
     useParams,
@@ -50,11 +50,21 @@ import LoadUser from "./components/unit_testing/LoadUser";
 import {Link, Outlet, Route} from "react-router-dom";
 import ReduxCounter from "./features/counter/ReduxCounter";
 import ReduxToDo from "./features/todo/ReduxToDo";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {apiGetAllMovie} from "./features/movie-list/movieSlice";
+
 let LoggedComponent = logProps(Welcome);
 
 
 function App() {
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(apiGetAllMovie());
+
+    },[]);
+
+
     const toDo = useSelector((state) => state.toDo);
     let user ={
         name: "Someone",
@@ -78,13 +88,14 @@ function App() {
                 paddingBottom: "1rem",
             }}
         >
-            <Link to="/invoices">Invoices</Link> |{" "}
+           {/* <Link to="/invoices">Invoices</Link> |{" "}
             <Link to="/invoices?data=vans">Invoice vans</Link>|{" "}
             <Link to="/expenses">Expenses</Link> |{" "}
-            <Link to="/users">Users</Link> |{" "}
+            <Link to="/users">Users</Link> |{" "}*/}
+            <Link to={"/movie-list"}>Movie List</Link>
         </nav>
         <Outlet />
-        <h1> To do count {toDo.items.length}</h1>
+       {/* <h1> To do count {toDo.items.length}</h1>*/}
         {/*<button type={"button"}
                 className={"btn btn-primary"}
                 onClick={btnOnClick}>
@@ -145,8 +156,8 @@ function App() {
 {/*<UseIdDemo/>*/}
 {/*<ToDoWithCustomReducer/>*/}
 {/*<LoadUser/>*/}
-<ReduxCounter/>
-      <ReduxToDo/>
+    {/*<ReduxCounter/>
+      <ReduxToDo/>*/}
     </div>
   );
 }

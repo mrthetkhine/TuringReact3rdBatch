@@ -22,6 +22,18 @@ const getReviewById = async (req,res,next)=>{
         await res.status(400).json({message: err})
     }
 }
+const getReviewByMovieId = async (req,res,next)=>{
+    try {
+        let movieId = req.params['movieId'];
+        const review = await reviewService.getReviewByMovieId(movieId);
+        if(!review) throw Error('No review');
+        await res.status(200).json(review);
+
+    }catch(err)
+    {
+        await res.status(400).json({message: err})
+    }
+};
 const saveReview = async (req,res,next)=>{
     try {
         const body = req.body;
@@ -38,4 +50,5 @@ module.exports = {
     getAllReview,
     getReviewById,
     saveReview,
+    getReviewByMovieId,
 }

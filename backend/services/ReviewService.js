@@ -8,6 +8,9 @@ const getAllReview = async ()=>{
 const getReviewById = async(reviewId)=>{
     return Reviews.findById(reviewId).populate("movie");
 }
+const getReviewByMovieId = async(movieId)=>{
+    return Reviews.find({movie:movieId}).populate("movie");
+}
 const saveReview = async(review)=>{
     const newReview = new Reviews({
         movie: mongoose.Types.ObjectId(review.movie),
@@ -22,4 +25,5 @@ module.exports = {
     getAllReview,
     saveReview,
     getReviewById,
+    getReviewByMovieId
 }

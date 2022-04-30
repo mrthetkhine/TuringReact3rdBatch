@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var cors = require('cors');
 const mongoose = require('mongoose');
 const { db } = require('./config/database');
 
@@ -21,7 +21,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
+app.use(cors());
 app.use(logger('dev'));
 app.use(customLogger.logger);
 app.use(express.json());
@@ -46,8 +46,8 @@ app.use('/admin/*',function(req,res,next)
  */
 app.use('/admin',adminRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/movies',auth.verifyUserToken, movieRouter);
-app.use('/api/reviews',auth.verifyUserToken, reviewRouter);
+app.use('/api/movies',/*auth.verifyUserToken,*/ movieRouter);
+app.use('/api/reviews',/*auth.verifyUserToken,*/ reviewRouter);
 
 app.use('/test',(req,res,next)=>{
   res.send('Test router');
