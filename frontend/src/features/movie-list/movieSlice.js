@@ -31,5 +31,5 @@ export const movieSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 //export const { increment, decrement, incrementByAmount } = movieSlice.actions
-
+export const selectMovieById =  (state,movieId) => state.movie.movies.filter(movie=>movie._id ==movieId)[0];
 export default movieSlice.reducer;

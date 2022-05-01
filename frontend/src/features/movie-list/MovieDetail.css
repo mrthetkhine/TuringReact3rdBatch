@@ -1,0 +1,15 @@
+.movie-details
+{
+    border-radius: 10px;
+    padding:20px;
+    border:1px solid lightgray;
+    min-height: 50px;
+    margin-left:50px;
+    margin-right:50px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.movie-details-title
+{
+    font-weight: bold;
+}

@@ -1,0 +1,11 @@
+.movie-review
+{
+    border-radius: 10px;
+    padding:20px;
+    /*border-bottom: 1px solid lightgray;*/
+}
+.star
+{
+    justify-content: center;
+    display: flex;
+}

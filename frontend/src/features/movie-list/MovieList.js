@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 import {getAllMovie} from "./movieApi";
 import {useSelector} from "react-redux";
-
+import {selectMovieById} from './movieSlice';
 function MoviePreview(props) {
     let navigate = useNavigate();
     const movie = props.movie;
@@ -27,11 +27,7 @@ function MoviePreview(props) {
 
 MoviePreview.propTypes = {movie: PropTypes.any};
 const MovieList = (props)=>{
-    useEffect(()=>{
-        /*getAllMovie().then(response=>console.log(
-            'Movie loaded ',response.data
-        ));*/
-    });
+
     /*const movieList =[
         {
             "_id": "622f39a0b0b080b80fcb1083",
