@@ -14,3 +14,12 @@ export function saveReview(review){
     console.log('Called saveReview with axios');
     return axios.post(API,review);
 }
+
+export function deleteReview(reviewId){
+    console.log('Called saveReview with axios');
+    return axios.delete(API+`/${reviewId}`);
+}
+export function updateReview(reviewId,review){
+    console.log('Called updateReview with axios ',review);
+    return axios.patch(API+`/${reviewId}`,review);
+}

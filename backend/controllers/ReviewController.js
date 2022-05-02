@@ -46,9 +46,39 @@ const saveReview = async (req,res,next)=>{
         await res.status(400).json({message: err})
     }
 }
+const updateReview = async function (req,res,next)
+{
+    let reviewId = req.params['reviewId'];
+    let review = req.body;
+    console.log(`update review ${reviewId} `,req.body);
+    try {
+        const updateReview = await reviewService.updateReview(reviewId,review);
+        console.log('Updated Review ',updateReview);
+        if(!updateReview) throw Error('Cannot update Review');
+        await res.status(200).json(updateReview);
+
+    }catch(err)
+    {
+        await res.status(400).json({message: err})
+    }
+}
+const deleteReview = async (req,res,next)=>{
+    let reviewId = req.params['reviewId'];
+    try {
+        const deleteReview = await reviewService.deleteReview(reviewId);
+        if(!deleteReview) throw Error('Cannot delete review');
+        await res.status(200).json(deleteReview);
+
+    }catch(err)
+    {
+        await res.status(400).json({message: err})
+    }
+}
 module.exports = {
     getAllReview,
     getReviewById,
     saveReview,
+    updateReview,
+    deleteReview,
     getReviewByMovieId,
 }

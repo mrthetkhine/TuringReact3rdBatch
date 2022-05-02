@@ -10,8 +10,8 @@ import {getAllReviewByMovieId,saveReview} from "../review/reviewApi";
 import MovieReview from "./MovieReview";
 import {apiSaveReview, selectReviewByMovieById} from "../review/reviewSlice";
 
-const MovieDetails = ({movie})=>{
-    const reviews = useSelector(state=>selectReviewByMovieById(state,movie._id),shallowEqual);
+const MovieDetails = ({movie,reviews})=>{
+
     console.log('Movie Reviews ',reviews);
     const dispatch = useDispatch();
     const [showModal, setShow] = useState(false);

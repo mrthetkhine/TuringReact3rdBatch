@@ -72,7 +72,7 @@ const deleteMovie = async (req,res,next)=>{
     try {
         const deletedMovie = await movieService.deleteMovie(movieId);
         if(!deletedMovie) throw Error('Cannot delete movie');
-        await res.status(204).json(deletedMovie);
+        await res.status(200).json(deletedMovie);
 
     }catch(err)
     {
