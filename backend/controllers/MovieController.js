@@ -49,6 +49,7 @@ const newMovie = async function(req,res,next)
 
     }catch(err)
     {
+        console.log(err);
         await res.status(400).json({message: err})
     }
 }
