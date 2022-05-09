@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
 import {ToDo, ToDoList} from "../todos/todoSlice";
-import {getAllMovie, saveMovie} from "./movieApi";
+import {deleteMovie, getAllMovie, saveMovie, updateMovie} from "./movieApi";
 
 export interface Movie {
     _id? : string,
@@ -41,6 +41,26 @@ export const apiSaveMovie = createAsyncThunk(
         return response.data;
     }
 );
+export const apiUpdateMovie = createAsyncThunk(
+    'movie/updateMovie',
+    async (movie:Movie) => {
+        console.log("API update  movie");
+        const response = await updateMovie(movie);
+
+        console.log("Update movie json ",response.data);
+        return response.data;
+    }
+);
+export const apiDeleteMovie = createAsyncThunk(
+    'movie/DeleteMovie',
+    async (movie:Movie) => {
+        console.log("API delete  movie");
+        const response = await deleteMovie(movie);
+
+        console.log("Delete movie json ",response.data);
+        return response.data;
+    }
+);
 export const movieSlice = createSlice({
     name: 'movie',
     initialState,
@@ -61,10 +81,23 @@ export const movieSlice = createSlice({
                 console.log("Api save movie fulfilled ", action.payload);
                 state.movies = [...state.movies, action.payload];
 
-            });
+            })
+            .addCase(apiUpdateMovie.fulfilled, (state, action) => {
+                console.log("Api Update movie fulfilled ", action.payload);
+                state.movies = state.movies.map(movie=>
+                    movie._id==action.payload._id?
+                    action.payload : movie);
+
+            })
+            .addCase(apiDeleteMovie.fulfilled, (state, action) => {
+                console.log("Api delete movie fulfilled ", action.payload);
+                state.movies = state.movies.filter(movie=>movie._id!= action.payload._id);
+
+        });
     }
 });
 
 export const { addMovie } = movieSlice.actions;
 export const selectMovie = (state: RootState) => state.movie.movies;
+export const selectMovieById =  (state: RootState,movieId:string) => state.movie.movies.filter(movie=>movie._id ==movieId)[0];
 export default movieSlice.reducer;

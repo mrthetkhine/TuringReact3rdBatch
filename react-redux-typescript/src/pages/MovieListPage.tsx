@@ -1,12 +1,23 @@
 import MovieList from "../features/movie/MovieList";
 import {useAppDispatch, useAppSelector} from "../app/hooks";
-import {apiGetAllMovie, apiSaveMovie, Movie, selectMovie} from "../features/movie/movieSlice";
+import {
+    apiDeleteMovie,
+    apiGetAllMovie,
+    apiSaveMovie,
+    apiUpdateMovie,
+    Movie,
+    selectMovie
+} from "../features/movie/movieSlice";
 import {useEffect, useState} from "react";
 import {Modal} from "react-bootstrap";
 import {Form, Formik} from "formik";
 import * as Yup from 'yup';
+import Swal from 'sweetalert2';
+
 import {useDispatch} from "react-redux";
-import {saveMovie} from "../features/movie/movieApi";
+
+import {saveMovie, updateMovie} from "../features/movie/movieApi";
+import MovieUI from "../features/movie/MovieUI";
 
 const MovieSchema = Yup.object().shape({
     title: Yup.string()
@@ -18,12 +29,13 @@ const MovieSchema = Yup.object().shape({
 });
 const MovieForm = (props:any)=>{
     let dispatch = useAppDispatch();
-    let propMovie = props.movie;
+    let movie = props.movie;
+    console.log('Edit movie ',movie);
     let handleClose = props.handleClose;
     let initValues ={
-        _id : propMovie? propMovie._id:'',
-        title:  propMovie? propMovie.title:'',
-        year:  propMovie? propMovie.year:'',
+        _id : movie? movie._id:'',
+        title:  movie? movie.title:'',
+        year:  movie? movie.year:'',
     }
 
     return (<div>
@@ -35,15 +47,29 @@ const MovieForm = (props:any)=>{
                 // same shape as initial values
                 //console.log("Handle Close ", handleClose);
                 console.log(values);
-                let movie: Movie = {
-                    title: values.title,
-                    year: Number(values.year)
+
+                if (!movie)//save
+                {
+                    let newMovie: Movie = {
+                        title: values.title,
+                        year: Number(values.year)
+                    }
+
+                    console.log('Movie ', newMovie);
+                    dispatch(apiSaveMovie(newMovie));
+                }
+                else //Update movie
+                {
+                    let movieToUpdate: Movie = {
+                        _id : values._id,
+                        title: values.title,
+                        year: Number(values.year)
+                    }
+
+                    console.log('Updated Movie ', movieToUpdate);
+                    dispatch(apiUpdateMovie(movieToUpdate));
                 }
 
-                console.log('Movie ',movie);
-                dispatch(apiSaveMovie(movie));
-
-                ///saveMovie(movie).then((data:any)=>console.log('Save movie backend result ',data));
                 handleClose();
             }}
         >
@@ -81,7 +107,11 @@ const MovieForm = (props:any)=>{
                     />
                     {errors.year && touched.year ? <div className="alert alert-danger">{errors.year.toString()}</div> : null}
                     <button type="submit"
-                            className="btn btn-primary">Submit
+                            className="btn btn-primary">{movie?'Update':'Save'}
+                    </button>
+                    <button type="button"
+                            onClick={()=>handleClose()}
+                            className="btn">Cancel
                     </button>
                 </Form>
             )}
@@ -97,15 +127,38 @@ export default function MovieListPage() {
 
     const movies = useAppSelector(selectMovie);
 
-
+    const [editMovie,setEditMovie] = useState(null);
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const btnAddNewMovieClick = ()=>{
         console.log('Btn Add New Movie click');
+        setEditMovie(null);
         handleShow();
+    };
+
+    const btnEditClick=(movie:any)=>{
+        console.log('Btn Edit Movie click ',movie);
+        setEditMovie(movie);
+        handleShow();
+    }
+    const btnDeleteClick = (movie:any)=>{
+      console.log('Delete click ',movie);
+        Swal.fire({
+            title: 'Do you want to delete movie?',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                dispatch(apiDeleteMovie(movie)).then(()=>{
+                    Swal.fire('Deleted!', '', 'success');
+                });
+
+            }
+        })
     };
     return (
         <div>
@@ -116,10 +169,11 @@ export default function MovieListPage() {
             </button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{'New Movie'}</Modal.Title>
+                    <Modal.Title>{editMovie?'Update Movie':'New Movie'}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                    <MovieForm handleClose={handleClose}
+                              movie ={editMovie}
                              />
 
                 </Modal.Body>
@@ -132,7 +186,15 @@ export default function MovieListPage() {
                     </Button>
                 </Modal.Footer>*/}
             </Modal>
-            <MovieList movies={movies}/>
+            {
+                movies.map((movie:Movie)=>
+                    <MovieUI
+                        key={movie._id}
+                        editClick = {btnEditClick}
+                        deleteClick = {btnDeleteClick}
+                        movie={movie}/>
+                )
+            }
         </div>
     );
 }

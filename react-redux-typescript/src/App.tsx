@@ -12,6 +12,7 @@ import ToDoUI from "./features/todos/ToDoUI";
 
 import HomePage from "./pages/HomePage";
 import MovieListPage from "./pages/MovieListPage";
+import MovieDetailsPage from "./pages/MovieDetailsPage";
 
 function App() {
 
@@ -54,6 +55,9 @@ function App() {
 
              </Route>
              <Route path="/movie-list" element={<MovieListPage/>}>
+
+             </Route>
+             <Route path="/movie-details/:movieId" element={<MovieDetailsPage/>}>
 
              </Route>
              {/*<Route path="/login" element={<LoginPage/>}>
