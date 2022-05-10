@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import {
@@ -7,12 +7,18 @@ import {
     Routes,
     Link
 } from "react-router-dom";
+import PrivateRoute from './component/PrivateRoute';
+import {useAuthentication} from "./services/authService";
 import './App.css';
 import ToDoUI from "./features/todos/ToDoUI";
 
 import HomePage from "./pages/HomePage";
 import MovieListPage from "./pages/MovieListPage";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
+import {useAppDispatch} from "./app/hooks";
+import {apiGetAllMovieIfNotLoaded} from "./features/movie/movieSlice";
+import LoginPage from "./pages/LoginPage";
+import LogoutPage from "./pages/LogoutPage";
 
 function App() {
 
@@ -31,19 +37,21 @@ function App() {
                      <li className="nav-item active">
                          <Link className="nav-link" to="/movie-list">Movie list</Link>
                      </li>
-                     <li className="nav-item active">
-                         <Link className="nav-link" to="/login?redirectTo=/">Login</Link>
-                     </li>
+                     {
+                         !useAuthentication() &&<li className="nav-item active">
+                             <Link className="nav-link" to="/login?redirectTo=/">Login</Link>
+                         </li>
+                     }
                      {/*{
                         useAuthentication()
                         && <li className="nav-item">
                             <Link className="nav-link" to="/movie-list">Movie List</Link>
                         </li>
                     }
-
+                */}
                     {useAuthentication() && <li className="nav-item">
                         <Link className="nav-link" to="/logout">Logout</Link>
-                    </li>}*/}
+                    </li>}
 
 
                  </ul>
@@ -54,38 +62,37 @@ function App() {
              <Route path="/" element={<HomePage/>}>
 
              </Route>
-             <Route path="/movie-list" element={<MovieListPage/>}>
 
-             </Route>
              <Route path="/movie-details/:movieId" element={<MovieDetailsPage/>}>
 
              </Route>
-             {/*<Route path="/login" element={<LoginPage/>}>
+             <Route path="/login" element={<LoginPage/>}>
 
-             </Route>*/}
-             {/*<Route path="/movie-list" element={
+             </Route>*
+             <Route path="/movie-list" element={
                  <PrivateRoute
                      redirectTo={"/login?redirectTo=/movie-list"}
                      isAuth={useAuthentication()}>
-                     <MovieList />
+                     <MovieListPage />
                  </PrivateRoute>}>
 
              </Route>
 
              <Route
-                 path="/movie-detail/:movieId"
+                 path="/movie-details/:movieId"
                  element={
                      <PrivateRoute
                          redirectTo={"/login?redirectTo=/movie-detail/:movieId"}
                          isAuth={useAuthentication()}>
-                         <MovieDetailPage />
+                         <MovieDetailsPage />
                      </PrivateRoute>
                  }
              />
+
              <Route path="/logout" element={<LogoutPage/>}>
 
              </Route>
-*/}
+
 
 
          </Routes>

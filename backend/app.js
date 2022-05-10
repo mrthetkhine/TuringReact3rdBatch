@@ -46,8 +46,8 @@ app.use('/admin/*',function(req,res,next)
  */
 app.use('/admin',adminRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/movies',/*auth.verifyUserToken,*/ movieRouter);
-app.use('/api/reviews',/*auth.verifyUserToken,*/ reviewRouter);
+app.use('/api/movies',auth.verifyUserToken, movieRouter);
+app.use('/api/reviews',auth.verifyUserToken, reviewRouter);
 
 app.use('/test',(req,res,next)=>{
   res.send('Test router');

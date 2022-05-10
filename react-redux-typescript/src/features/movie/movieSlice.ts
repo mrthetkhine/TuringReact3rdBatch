@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
 import {ToDo, ToDoList} from "../todos/todoSlice";
 import {deleteMovie, getAllMovie, saveMovie, updateMovie} from "./movieApi";
+import {addReviewLoadedMovie, apiGetAllReviewByMovieId} from "../review/reviewSlice";
 
 export interface Movie {
     _id? : string,
@@ -9,10 +10,12 @@ export interface Movie {
     year: number,
 };
 export interface MovieList {
-    movies: Array<Movie>
+    movies: Array<Movie>,
+    loaded:boolean,
 }
 
 const initialState: MovieList = {
+    loaded:false,
     movies : [
         {
             _id : "1",
@@ -68,6 +71,9 @@ export const movieSlice = createSlice({
         addMovie: (state, action: PayloadAction<ToDo>) => {
             //state.items = [...state.items, action.payload];
         },
+        movieLoaded: (state) => {
+            state.loaded = true;
+        },
 
     },
     extraReducers: (builder) => {
@@ -97,7 +103,18 @@ export const movieSlice = createSlice({
     }
 });
 
-export const { addMovie } = movieSlice.actions;
+export const { addMovie,movieLoaded } = movieSlice.actions;
 export const selectMovie = (state: RootState) => state.movie.movies;
-export const selectMovieById =  (state: RootState,movieId:string) => state.movie.movies.filter(movie=>movie._id ==movieId)[0];
+export const selectMovieById =  (movies:Array<Movie>,movieId:string) => movies.filter(movie=>movie._id ==movieId)[0];
 export default movieSlice.reducer;
+export const apiGetAllMovieIfNotLoaded =
+    (): AppThunk =>
+        (dispatch, getState) => {
+
+            const loaded = getState().movie.loaded;
+            console.log('Movies loaded ',loaded);
+            if (!loaded) {
+                dispatch(movieLoaded());
+                dispatch(apiGetAllMovie());
+            }
+};

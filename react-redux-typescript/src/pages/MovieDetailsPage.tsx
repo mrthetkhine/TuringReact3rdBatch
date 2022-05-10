@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../app/hooks";
-import {selectMovieById} from "../features/movie/movieSlice";
+import {shallowEqual} from 'react-redux';
+import {selectMovie, selectMovieById} from "../features/movie/movieSlice";
 import {
     apiGetAllReviewByMovieId,
     apiGetAllReviewByMovieIfNotLoaded,
@@ -12,9 +13,15 @@ import {useEffect} from "react";
 import ReviewListUI from "../features/review/ReviewListUI";
 
 export default function MovieDetailsPage() {
+    console.log('Movie detial render');
     let {movieId} = useParams();
 
-    const movie = useAppSelector(state=>selectMovieById(state,movieId!));
+    const movies = useAppSelector(selectMovie);
+    const movie = selectMovieById(movies,movieId!);
+   /* let movie = {
+        title:'zero',
+        year:23
+    };*/
     console.log("Movie ",movie);
     return (
         <div>
@@ -25,7 +32,7 @@ export default function MovieDetailsPage() {
                 <div>
                     Year {movie.year} &nbsp;
                 </div>
-                <ReviewListUI movieId={movieId}/>
+                <ReviewListUI movie={movie}/>
             </div>
     </div>)
 }

@@ -1,16 +1,17 @@
-import {apiGetAllReviewByMovieIfNotLoaded, Review, selectReviewMovieById} from "./reviewSlice";
+import {apiGetAllReviewByMovieIfNotLoaded, Review, selectReview, selectReviewMovieById} from "./reviewSlice";
 import ReviewUI from "./ReviewUI";
 import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {useEffect} from "react";
-
+import {shallowEqual} from 'react-redux';
 export default function ReviewListUI(props:any) {
-    let {movieId} = props;
+    console.log('Review list render');
+    let {movie} = props;
     const dispatch = useAppDispatch();
     useEffect(()=>{
-        dispatch(apiGetAllReviewByMovieIfNotLoaded(movieId!));
+        dispatch(apiGetAllReviewByMovieIfNotLoaded(movie._id!));
     },[]);
-    const reviews = useAppSelector(state => selectReviewMovieById(state,movieId!) );
-
+    const allReview = useAppSelector(selectReview );
+    const reviews = selectReviewMovieById(allReview,movie._id!);
     return(
         <div>
             {

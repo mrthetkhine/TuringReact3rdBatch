@@ -152,15 +152,86 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "GetAllMovie",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzg4NjI3YTI1ZTZiNzBiYzkwMTY5YSIsImlhdCI6MTY0ODI4ODA1NX0.EuRRya1BMQO3jYNiVpfqt-Ra42_QTf4opiEPOQXx3Fo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/movies",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"movies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "815"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32f-CVcU8XZoMlVtvoqxe9aNZmNK6Mg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 14:30:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"622f39a0b0b080b80fcb1083\",\n        \"title\": \"The Dark Knight\",\n        \"year\": 2008\n    },\n    {\n        \"_id\": \"622f3a4ab0b080b80fcb1084\",\n        \"title\": \"Titanic\",\n        \"year\": 1995\n    },\n    {\n        \"_id\": \"622f3a4ab0b080b80fcb1085\",\n        \"title\": \"Inception\",\n        \"year\": 2010\n    },\n    {\n        \"_id\": \"622f467ab0b080b80fcb1089\",\n        \"title\": \"Life is beautiful\",\n        \"year\": 1997,\n        \"genre\": [\n            \"Romance\",\n            \"Drama\"\n        ]\n    },\n    {\n        \"_id\": \"6236fb1e156932ce5f751c8a\",\n        \"title\": \"New Movie 1\",\n        \"director\": {\n            \"_id\": \"627a77169188ea7d348ac63d\",\n            \"name\": \"Cameron\"\n        },\n        \"year\": 2022,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6277ab3135de077ce4624bda\",\n        \"title\": \"New Movie 12\",\n        \"director\": {\n            \"_id\": \"627a77169188ea7d348ac63e\",\n            \"name\": \"Director 2\"\n        },\n        \"year\": 2022,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6277adf1466a87a3f7e27be6\",\n        \"title\": \"New Movie 12\",\n        \"director\": {\n            \"name\": \"Director 2\",\n            \"_id\": \"6277adf1466a87a3f7e27be7\"\n        },\n        \"year\": 2022,\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6277adfe466a87a3f7e27be9\",\n        \"title\": \"New Movie 12\",\n        \"year\": 2022,\n        \"__v\": 0\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "GetAllMovieById",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzg4NjI3YTI1ZTZiNzBiYzkwMTY5YSIsImlhdCI6MTY0ODI4ODA1NX0.EuRRya1BMQO3jYNiVpfqt-Ra42_QTf4opiEPOQXx3Fo",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:3000/api/movies/622f3a4ab0b080b80fcb1084",
+							"raw": "http://localhost:3000/api/movies/6236fb1e156932ce5f751c8a",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -169,11 +240,143 @@
 							"path": [
 								"api",
 								"movies",
-								"622f3a4ab0b080b80fcb1084"
+								"6236fb1e156932ce5f751c8a"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "GetAllMovieById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzg4NjI3YTI1ZTZiNzBiYzkwMTY5YSIsImlhdCI6MTY0ODI4ODA1NX0.EuRRya1BMQO3jYNiVpfqt-Ra42_QTf4opiEPOQXx3Fo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/movies/6236fb1e156932ce5f751c8a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"movies",
+										"6236fb1e156932ce5f751c8a"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8b-JXr3duNE8HvZ6qY6FdtNg0yLo1I\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 14:31:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6236fb1e156932ce5f751c8a\",\n    \"title\": \"New Movie 1\",\n    \"director\": {\n        \"_id\": \"627a77499188ea7d348ac641\",\n        \"name\": \"Cameron\"\n    },\n    \"year\": 2022,\n    \"__v\": 0\n}"
+						},
+						{
+							"name": "GetAllMovieByIdAccessDenied",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMzg4NjI3YTI1ZTZiNzBiYzkwMTY5YSIsImlhdCI6MTY0ODI4ODA1NX0.EuRRya1BMQO3jYNiVpfqt-Ra42_QTf4opiEPOQXx3Fo",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/movies/6236fb1e156932ce5f751c8a",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"movies",
+										"6236fb1e156932ce5f751c8a"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "36"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24-roWuVfCkMs6EK8cwhN8zLwz3iwo\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 May 2022 14:31:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Access Denied / Unauthorized request"
+						}
+					]
 				},
 				{
 					"name": "SearchMovieByTitle",
@@ -209,7 +412,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"New Movie 1\",\n    \"director\": {\n        \"name\": \"Jame Cameron\"\n    },\n    \"year\": 2022\n}"
+							"raw": "{\n    \"title\": \"New Movie 12\",\n    \"year\": 2022\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/movies",

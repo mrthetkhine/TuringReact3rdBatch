@@ -13,6 +13,7 @@ import {ToDo} from "../todos/todoSlice";
 import {getAllMovie} from "../movie/movieApi";
 import {getAllReviewByMovieId} from "./reviewApi";
 import {incrementByAmount, selectCount} from "../counter/counterSlice";
+import {number} from "yup";
 
 export interface Review {
     _id? : string,
@@ -21,10 +22,12 @@ export interface Review {
     movie: Movie,
 };
 export interface ReviewList {
+    reviewLoadedMovieIds:Array<string>,
     reviews: Array<Review>
 };
 
 const initialState: ReviewList = {
+    reviewLoadedMovieIds: [],
     reviews : [
        /* {
             _id : "1",
@@ -55,27 +58,33 @@ export const reviewSlice = createSlice({
         addReview: (state, action: PayloadAction<ToDo>) => {
             //state.items = [...state.items, action.payload];
         },
+        addReviewLoadedMovie(state,action:PayloadAction<string>)
+        {
+            state.reviewLoadedMovieIds.push(action.payload);
+        }
 
     },
     extraReducers: (builder) => {
         builder
             .addCase(apiGetAllReviewByMovieId.fulfilled, (state, action) => {
                 console.log("Api apiGetAllReviewByMovieId fullfilled ", action.payload);
-                state.reviews = [...action.payload];
+                state.reviews = [...state.reviews,...action.payload];
 
             });
 
     }
 });
-export const { addReview } = reviewSlice.actions;
-export const selectReviewMovieById =  (state: RootState,movieId:string) => state.review.reviews.filter(review=>review.movie._id ==movieId);
+export const { addReview,addReviewLoadedMovie } = reviewSlice.actions;
+export const selectReview = (state: RootState)=>state.review.reviews;
+export const selectReviewMovieById =  (reviews:Array<Review>,movieId:string) => reviews.filter(review=>review.movie._id ==movieId);
 export const apiGetAllReviewByMovieIfNotLoaded =
     (movieId: string): AppThunk =>
         (dispatch, getState) => {
 
-            const reviews = selectReviewMovieById(getState(),movieId);
-            console.log('Review length ',reviews);
-            if (reviews.length === 0) {
+            const reviewLoaded = getState().review.reviewLoadedMovieIds.indexOf(movieId)!=-1;
+            console.log('Review reviewLoaded ',reviewLoaded);
+            if (!reviewLoaded) {
+                dispatch(addReviewLoadedMovie(movieId));
                 dispatch(apiGetAllReviewByMovieId(movieId));
             }
         };

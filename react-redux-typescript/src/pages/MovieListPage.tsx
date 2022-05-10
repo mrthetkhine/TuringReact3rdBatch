@@ -2,7 +2,7 @@ import MovieList from "../features/movie/MovieList";
 import {useAppDispatch, useAppSelector} from "../app/hooks";
 import {
     apiDeleteMovie,
-    apiGetAllMovie,
+    apiGetAllMovie, apiGetAllMovieIfNotLoaded,
     apiSaveMovie,
     apiUpdateMovie,
     Movie,
@@ -122,7 +122,7 @@ const MovieForm = (props:any)=>{
 export default function MovieListPage() {
     const dispatch = useAppDispatch();
     useEffect(()=>{
-        dispatch(apiGetAllMovie());
+        dispatch(apiGetAllMovieIfNotLoaded());
     },[]);
 
     const movies = useAppSelector(selectMovie);
